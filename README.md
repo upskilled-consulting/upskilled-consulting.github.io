@@ -1,1 +1,1 @@
-# Codebase for [](https://upskilled.consulting)
+# Codebase for upskilled.consulting
