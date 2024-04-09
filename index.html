@@ -1,83 +1,35 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="./assets/js/color-modes.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CRTJRZ551"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-3CRTJRZ551');
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-96x96.png">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- jQuery (required for Owl Carousel) -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   </head>
   <body>
-    <style>
-      /* :root {
-        --illustration-body-bg-color: #4b6584;
-        --illustration-body-color: #d1d8e0;
-      } */
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      body {
-        /* font: 1em/160% sans-serif; */
-        margin: 0;
-        /* background-color: var(--illustration-body-bg-color); */
-        /* color: var(--illustration-body-color); */
-      }
-
-      svg {
-        fill: currentColor;
-        max-width: 100%;
-        vertical-align: baseline;
-      }
-
-      .site-container {
-        padding: 2em;
-        /* min-height: 100vh; */
-        display: grid;
-        place-items: center;
-      }
-
-      #drawable-illustration path:not([fill="none"]) {
-        fill: transparent;
-        stroke-width: 0.25;
-        stroke: currentColor;
-        animation: draw 2s forwards;
-      }
-
-      #drawable-illustration path:nth-child(1) {
-        stroke-dasharray: 61.9942626953125;
-        stroke-dashoffset: 61.9942626953125;
-      }
-
-      #drawable-illustration path:nth-child(2) {
-        stroke-dasharray: 18.852230072021484;
-        stroke-dashoffset: 18.852230072021484;
-      }
-
-      @keyframes draw {
-        to {
-          stroke-dashoffset: 0;
-        }
-      }
-    </style>
     <div class="container-fluid p-0" style="overflow: hidden;">
       <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
@@ -136,18 +88,18 @@
                   <!-- <a class="nav-item nav-link" href="./contact.html" style="text-decoration: none; text-decoration-color: none;"> -->
                     <h4 class="gradient">Contact</h4>
                   <!-- </a> -->
-                  <div style="padding-left: 0.8em">
-                    <!-- <a href="https://linkedin.com/in/nicholasmccarty" class="text-auto" style="text-decoration: none;">
+                  <div>
+                    <a href="https://linkedin.com/in/nicholasmccarty" class="text-auto" style="text-decoration: none;">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                         <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
                       </svg>
-                    </a> -->
-                    <a href="https://github.com/upskilled-consulting" class="text-auto" style="text-decoration: none;">
+                    </a>
+                    <a href="https://github.com/nickmccarty" class="text-auto" style="text-decoration: none;">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                       </svg>
                     </a>
-                    <a href="mailto:get@upskilled.consulting" class="text-auto" style="text-decoration: none;">
+                    <a href="mailto:nickmccarty0@gmail.com" class="text-auto" style="text-decoration: none;">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
                       </svg>
@@ -173,339 +125,153 @@
               </div>
             </div>
           </div>
-          <div class="navbar bg-auto" style="border-bottom: 5px solid #141414;">
+          <div class="navbar bg-auto shadow-sm">
             <div class="container">
               <a href="#" class="navbar-brand d-flex align-items-center"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
             </div>
           </div>
       </header>
       <main>
-        <div class="container col-12 mb-5">
-          <div class="row m-0 p-0">
-            <div class="text-center mb-5 mt-5">
-              <img class="img-fluid" style="width: 20em;" src="./assets/images/upskilled-consulting-logo-transparent.png" alt="">
-              <p class="lead mt-0">
-                Introducing Upskilled Consulting.
-                <br>
-                A new approach to learning and building.
-                <br>
-                Together.
-              </p>
-            </div>
-          </div>
-          <div id = "row1" class="row text-bg-auto mt-5">
-            <div class="col-4">
-              <div class="site-container">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                  <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708"/>
-                </svg>
+          <section class="text-center">
+            <!-- <div class="row"> -->
+              <div id="jumbotron-container" class="jumbotron text-center bg-image" style="background-image: url(./assets/images/green-mesh-background.png); border-radius: 0 0 50% 50%; height: 10em;">
+                  <h1 class="display-4" style="color: lightcyan; padding-top: 40px; text-shadow: 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000;"><span id="typed-text"></span></h1>
+                  <!-- <p class="lead" style="color: lightcyan;">Let's build something cool together!</p> -->
               </div>
-            </div>
-            <div class="col-8">
-              <div id = "card1" class="card text-center w-100">
-                <div class="card-body" style="background-color: rgb(255, 113, 105);">
-                    <div class="card-content" style="padding-bottom: 20px;">
-                        We present learning material in a way that emphasizes and supports gaining hands-on practical experience as quickly and frictionlessly as possible.
-                        <br>
-                        <br>
-                        No ads. No popups. No fluff. 
+            <!-- </div> -->
+          </section>
+          <br>
+          <!-- Bootstrap Row with Horizontally Scrolling Logos -->
+          <!-- <div class="jumbotron-container mt-4" style="padding-top: 30px; background-color: white;">
+            <div class="row">
+                <div class="col-md-12">
+                  <h2 class="text-center gradient" style="padding-bottom: 2px;">Organizations I've Served</h2>
+                  <br>
+                  <br>
+                    <div class="owl-carousel owl-theme">
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/city-of-beaverton-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/ohsu-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/city-of-phoenix-logo.jfif">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/uc-berkeley-extension-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/city-club-of-portland-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/seattle-public-schools-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/topa-3d-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/flatiron-school-logo.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/transre-logo.jfif">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/trilogy-education-services.png">
+                        </div>
+                        <div class="logo">
+                          <img class = "carousel-img" src="./assets/images/deloitte-logo.png">
+                        </div>
                     </div>
-                    <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">
-                      <!-- <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="drawable-illustration">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708"/>
-                      </svg> -->
-                      Get Started
-                    </button>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div id = "row2" class="row text-bg-auto mt-5">
-            <div class="col-8">
-              <div id = "card2" class="card text-center w-100">
-                <div class="card-body" style="background-color: #178a7e;">
-                    <div class="card-content" style="padding-bottom: 20px;">
-                        Our focus on rapidly prototyping solutions to help you overcome bottlenecks keeps the scope of the material focused on what is immediately relevant to you: saving time and increasing throughput.
-                    </div>
-                    <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">Read Case Studies</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="site-container">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                  <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div id = "row3" class="row text-bg-auto mt-5">
-            <div class="col-4">
-              <div class="site-container">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-                </svg>
-              </div>
-            </div>
-            <div class="col-8">
-              <div id = "card3" class="card text-center w-100">
-                <div class="card-body" style="background-color: #90a8ed;">
-                    <div class="card-content" style="padding-bottom: 20px;">
-                        Becoming part of our learning community will not only help you increase your impact &mdash; it can pre-qualify you to earn paid experience by taking on projects in our pipeline!
-                    </div>
-                    <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">Join Us On Discord</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div style="padding-top: 1000px;"></div> -->
-          <!-- <div class="row text-bg-auto mt-5">
-            <div class="col-4 site-container">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708"/>
-              </svg>
-            </div>
-            <div class="col-4 site-container">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
-              </svg>
-            </div>
-            <div class="col-4 site-container">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" id="drawable-illustration">
-                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-              </svg>
             </div>
           </div> -->
-          <!-- <div id="animated-cards" class="row">
-            <div id="animated-card-1" class="col-4 d-flex align-items-stretch">
-                <div class="card text-center w-100">
-                    <div class="card-body" style="background-color: rgb(255, 113, 105);">
-                        <div class="card-content" style="padding-bottom: 20px;">
-                            We present learning material in a way that emphasizes and supports gaining hands-on practical experience as quickly and frictionlessly as possible.
-                            <br>
-                            <br>
-                            Did we mention it's free?
-                        </div>
-                        <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">
-                          <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="drawable-illustration">
-                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708"/>
-                          </svg>
-                          Learn More
-                        </button>
+          <div class="container" style="padding-top: 40px;">
+            <div class="row">
+              <div class="col">
+                <div class="jumbotron">
+                  <h1 class="display-4 text-center gradient">Get Upskilled. Bridge Gaps. Increase Impact.</h1>
+                  <div class="row" style="padding-top: 10px;">
+                    <div class="col-sm-3 text-center">
+                      <img class="rounded-circle img-thumbnail mb-5 shadow-lg" alt="avatar" src="./assets/images/upskilled-logo.jpg" style="width: 200px;"/>
                     </div>
-                </div>
-            </div>
-            <div id="animated-card-2" class="col-4 d-flex align-items-stretch">
-                <div class="card text-center w-100">
-                    <div class="card-body" style="background-color: #178a7e;">
-                        <div class="card-content" style="padding-bottom: 20px;">
-                            Our focus on rapidly prototyping solutions to help you overcome bottlenecks keeps the scope of the material focused on what is immediately relevant to you: saving time and increasing throughput.
-                        </div>
-                        <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">Learn More</button>
+                    <div class="col-sm-9 d-flex flex-column justify-content-center">
+                      <p class="lead mb-0">
+                        With decades of experience providing consulting services and technical instruction,
+                        our team offers assistance in the following areas:
+                        <ul class="mt-4">
+                          <li>
+                            UI/UX Design
+                          </li>
+                          <li>
+                            Web Development
+                          </li>
+                          <li>
+                            Data Science/Analytics
+                          </li>
+                          <li>
+                            AI-Driven Applications
+                          </li>
+                          <li>
+                            Custom Skills-Based Training
+                          </li>  
+                        </ul>
+                      </p>
                     </div>
+                    <p class="lead text-center mb-5">
+                      <a class="btn btn-primary btn-outline-secondary btn-lg gradient" href="./about.html" role="button">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                          <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+                          <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
+                        </svg>
+                      </a>
+                    </p>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div id="animated-card-3" class="col-4 d-flex align-items-stretch">
-                <div class="card text-center w-100">
-                    <div class="card-body" style="background-color: #90a8ed;">
-                        <div class="card-content" style="padding-bottom: 20px;">
-                            Becoming part of our learning community will not only help you increase your impact &mdash; it can pre-qualify you to earn paid experience by taking on projects in our pipeline!
-                        </div>
-                        <button class="btn btn-outline-secondary mb-2 mt-3" style="border: 3px solid #141414; background-color: white;">Learn More</button>
-                    </div>
-                </div>
-            </div>
-          </div>                 -->
-        </div>
+          </div>
       </main>
-      <footer id = "footer" class="jumbotron-fluid mt-5" style="background: #ff90e8;">
-        <div class="text-center mt-5" style="padding-top: 40px;">
-          <iframe id = "substack-embed" src="https://upskilled.substack.com/embed" width="480" height="150" style="border:3px solid black; background: black; box-shadow: 5px 5px #141414" frameborder="0" scrolling="no"></iframe>
-        </div>
-        <p class="text-center mt-3 gradient">Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart gradient" viewBox="0 0 16 16">
+      <footer id = "footer" class="jumbotron-fluid"></footer>
+      <p class="text-center mt-3 gradient">Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart gradient" viewBox="0 0 16 16">
         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-        </svg> and <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code gradient" viewBox="0 0 16 16">
-          <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
-        </svg> by Nick McCarty</p>
-        <div class="text-center m-0">
-          <a href="https://linkedin.com/company/upskilled-consulting" class="text-auto" style="text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
-            </svg>
-          </a>
-          <a href="https://github.com/upskilled-consulting" class="text-auto" style="text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-            </svg>
-          </a>
-          <a href="mailto:get@upskilled.consulting" class="text-auto" style="text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-            </svg>
-          </a>
-          <a href="https://discord.com/invite/CJpWjTJ7Uk">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-                <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-            </svg>
-          </a>
-          <!-- <a href="https://twitter.com/_upskilled_" class="text-auto" style="text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-            </svg>
-          </a> -->
-          <br>
-          <br>
-        </div>
-      </div>   
-    </footer> 
+      </svg> and <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code gradient" viewBox="0 0 16 16">
+        <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+      </svg> by Upskilled Consulting, LLC
+      <br>
+      All rights reserved &copy; 2024
+    </p>
+      <div class="text-center mb-3">
+        <a href="https://linkedin.com/company/upskilled-consulting" class="text-auto" style="text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
+          </svg>
+        </a>
+        <a href="https://github.com/upskilled-consulting" class="text-auto" style="text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+          </svg>
+        </a>
+        <a href="mailto:get@upskilled.consulting" class="text-auto" style="text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+          </svg>
+        </a>
+        <a href="https://discord.com/invite/CJpWjTJ7Uk">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+              <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+          </svg>
+        </a>
+      </div>
+    </div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-      $(document).ready(function() {
-          // Function to toggle dark mode
-          function toggleDarkMode() {
-              // Check if dark mode is enabled
-              var darkModeEnabled = $("html").attr("data-bs-theme") === "dark";
-              
-              // Change the value of --bs-body-bg based on dark mode
-              if (darkModeEnabled) {
-                  document.documentElement.style.setProperty('--bs-body-bg', '#464646');
-              } else {
-                  document.documentElement.style.setProperty('--bs-body-bg', '#e7f2f9'); 
-              }
-          }
-
-          // Call toggleDarkMode when the page loads
-          toggleDarkMode();
-
-          // Call toggleDarkMode whenever the dropdown items are clicked
-          $(".dropdown-item").on("click", function() {
-              toggleDarkMode();
-          });
-      });
-    </script>
-    <script>
-      let icon = document.querySelector("#drawable-illustration");
-
-      if (icon) {
-        let paths = icon.querySelectorAll("path");
-        if (paths.length) {
-          for ([index, path] of paths.entries()) {
-            let pathLength = path.getTotalLength();
-            console.log(`Path #${index + 1}: ${pathLength}`);
-          }
-        }
-      }
-    </script>
-    <script>
-      // JavaScript to reveal cards when they are scrolled into view
-      document.addEventListener('DOMContentLoaded', function() {
-          var cards = document.querySelectorAll('.col-4');
-
-          function revealCards() {
-              cards.forEach(function(card) {
-                  if (isElementInViewport(card)) {
-                      card.classList.add('revealed');
-                  }
-              });
-          }
-
-          function isElementInViewport(el) {
-              var rect = el.getBoundingClientRect();
-              return (
-                  rect.top >= 0 &&
-                  rect.left >= 0 &&
-                  rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                  rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-              );
-          }
-
-          // Initial check
-          revealCards();
-
-          // Check again when scrolling
-          window.addEventListener('scroll', revealCards);
-      });
-    </script>
-    <script>
-      // Function to check if an element is in the viewport
-      function isInViewport(element) {
-          const rect = element.getBoundingClientRect();
-          return (
-              rect.top >= 0 &&
-              rect.left >= 0 &&
-              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-          );
-      }
-
-      // Function to handle scroll event
-      function handleScroll() {
-          const row1 = document.getElementById('row1');
-          const row2 = document.getElementById('row2');
-          const row3 = document.getElementById('row3');
-
-          if (isInViewport(row1)) {
-              row1.querySelector('#drawable-illustration').classList.add('visible');
-              setTimeout(() => {
-                  row1.querySelector('.card').classList.add('visible');
-              }, 500); // Adjust the delay as needed
-          }
-
-          if (isInViewport(row2)) {
-              row2.querySelector('#drawable-illustration').classList.add('visible');
-              setTimeout(() => {
-                  row2.querySelector('.card').classList.add('visible');
-              }, 500); // Adjust the delay as needed
-          }
-
-          if (isInViewport(row3)) {
-              row3.querySelector('#drawable-illustration').classList.add('visible');
-              setTimeout(() => {
-                  row3.querySelector('.card').classList.add('visible');
-              }, 500); // Adjust the delay as needed
-          }
-      }
-
-      // Add scroll event listener
-      window.addEventListener('scroll', handleScroll);
-
-      // Initial check for elements in viewport
-      handleScroll();
-    </script>
-    <script>
-      // Function to check if an element is in the viewport
-      function isInViewport(element) {
-          const rect = element.getBoundingClientRect();
-          return (
-              rect.top >= 0 &&
-              rect.left >= 0 &&
-              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-          );
-      }
-
-      // Function to handle scroll event
-      function handleScroll() {
-          const svgElements = document.querySelectorAll('.animated-svg');
-
-          svgElements.forEach(svg => {
-              if (isInViewport(svg)) {
-                  svg.classList.add('visible');
-              } else {
-                  svg.classList.remove('visible'); // Remove the class if the SVG is no longer visible
-              }
-          });
-      }
-
-      // Add scroll event listener
-      window.addEventListener('scroll', handleScroll);
-
-      // Initial check for elements in viewport
-      handleScroll();
-    </script>
-    <!-- <script src="./assets/js/footer-animation.js"></script> -->
+    <script src="./assets/js/typing.js"></script>
+    <script src="./assets/js/cards.js"></script>
+    <script src="./assets/js/scroll.js"></script>
+    <script src="./assets/js/footer-animation.js"></script>
   </body>
 </html>
