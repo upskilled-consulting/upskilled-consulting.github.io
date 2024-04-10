@@ -51,7 +51,7 @@ class Particle {
 
     draw() {
         // Calculate the gradient color based on the particle's y position
-        const gradientColor = lerpColor(color('#f2e772'), color('#096137'), this.y / height);
+        const gradientColor = lerpColor(color('teal'), color('purple'), this.y / height);
 
         // Render particles on the gradient background
         noStroke();
