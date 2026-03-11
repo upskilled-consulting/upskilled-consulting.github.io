@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SMS Messaging Consent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+  <body>
+  
+    <section>
+    
+      <p class="section-title">Messaging Compliance</p>
+      <h1 class="section-heading">SMS Consent & Opt-In Process</h1>
+      
+      <p>
+      This page documents how customers provide consent to receive SMS messages from
+      <strong>Upskilled Consulting</strong>.
+      </p>
+      
+      <h3>How Consent Is Collected</h3>
+      
+      <p>
+      Customers provide consent to receive SMS messages when they request services
+      through our website or communicate with our team. During this interaction,
+      users are informed that SMS messages may be used to respond to their request
+      or provide updates related to their inquiry.
+      </p>
+      
+      <h3>Consent Language</h3>
+      
+      <p>
+      Users are presented with the following disclosure before agreeing to receive messages:
+      </p>
+      
+      <blockquote>
+      I consent to receive SMS messages from Upskilled Consulting regarding my inquiry or services.
+      Message frequency may vary. Message and data rates may apply.
+      Reply STOP to unsubscribe or HELP for assistance.
+      </blockquote>
+      
+      <h3>Message Details</h3>
+      
+      <ul>
+        <li>Message frequency varies depending on the interaction.</li>
+        <li>Standard message and data rates may apply.</li>
+        <li>Users may reply <strong>STOP</strong> to opt out at any time.</li>
+        <li>Users may reply <strong>HELP</strong> for support.</li>
+      </ul>
+      
+      <h3>Contact</h3>
+      
+      <p>
+      For questions about messaging, contact us at:
+      <strong>get@upskilled.consulting</strong>
+      </p>
+      
+    </section>
+    
+  </body>
+</html>
