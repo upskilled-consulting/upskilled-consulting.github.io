@@ -1165,14 +1165,16 @@ footer {
 
 .footer-logo-link {
   display: inline-block;
-  opacity: 0.55;
+  text-decoration: none;
   transition: opacity 0.2s;
 }
-.footer-logo-link:hover { opacity: 1; }
+.footer-logo-link:hover { opacity: 0.8; }
 
-.footer-logo {
-  height: 34px;
-  width: auto;
+.footer-logo-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: rgba(100, 200, 180, 0.9);
 }
 
 .footer-tagline {
@@ -1192,11 +1194,11 @@ footer {
 .footer-nav a {
   font-size: 12px;
   letter-spacing: 1.5px;
-  color: rgba(160, 190, 185, 0.45);
+  color: rgba(100, 200, 180, 0.9);
   text-decoration: none;
   transition: color 0.2s;
 }
-.footer-nav a:hover { color: rgba(100, 200, 180, 0.9); }
+.footer-nav a:hover { color: rgba(150, 230, 210, 1); }
 
 .footer-contact-heading {
   font-size: 13px;
@@ -1235,6 +1237,13 @@ footer {
 }
 .footer-form-row input::placeholder { color: rgba(160, 190, 185, 0.3); }
 .footer-form-row input:focus { border-color: rgba(100, 200, 180, 0.35); }
+.footer-form-row input:not(:placeholder-shown) { background: rgba(100, 200, 180, 0.07); }
+.footer-form-row input:-webkit-autofill,
+.footer-form-row input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(18, 40, 36, 1) inset;
+  -webkit-text-fill-color: rgba(220, 235, 230, 0.9);
+  box-shadow: 0 0 0 1000px rgba(18, 40, 36, 1) inset;
+}
 
 .footer-submit-btn {
   background: rgba(100, 200, 180, 0.08);
