@@ -274,41 +274,46 @@
 
   <!-- Footer -->
   <footer>
-      <p>&copy; 2024 Upskilled Consulting. All rights reserved.</p>
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="./index.html" class="footer-logo-link" aria-label="Upskilled Consulting home">
+          <img src="./assets/images/logo.png" alt="Upskilled Consulting" class="footer-logo">
+        </a>
+        <p class="footer-tagline">Computer Vision · Machine Learning · Data Science</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#courses">Courses</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-contact">
+        <p class="footer-contact-heading">Stay in Touch</p>
+        <p class="footer-contact-sub">Drop your details and we'll keep you in the loop on new courses, research, and consulting work.</p>
+        <div id="footer-form-message"></div>
+        <form id="footer-contact-form" class="footer-form" novalidate>
+          <input type="hidden" name="source" value="footer">
+          <div class="footer-form-row">
+            <input type="text"  id="footer-name"  name="name"  placeholder="Name"  autocomplete="name">
+            <input type="email" id="footer-email" name="email" placeholder="Email" autocomplete="email" required>
+            <button type="submit" id="footer-submit-btn" class="footer-submit-btn">Send</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Upskilled Consulting. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- Scripts -->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/contact.js"></script>
 
-  <!-- Modal Logic -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('contactModal');
-    const originInput = document.getElementById('form-origin');
-
-    // Open modal from CTA button or service card
-    document.querySelectorAll('.open-contact-modal').forEach(el => {
-      el.addEventListener('click', () => {
-        originInput.value = el.dataset.origin || 'unknown';
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    // Close modal via button
-    document.getElementById('closeModal').addEventListener('click', () => {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-    });
-
-    // Close modal via backdrop click
-    modal.querySelector('.modal-backdrop').addEventListener('click', () => {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-    });
-  });
-  </script>
 </body>
 </html>
 
