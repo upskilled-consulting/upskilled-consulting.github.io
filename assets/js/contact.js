@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 messageDiv.innerHTML =
                     '<div class="message success">Thanks for reaching out! I\'ll get back to you soon.</div>';
+                if (typeof gtag === 'function') gtag('event', 'contact_form_submit', { origin: modalForm.origin.value });
                 modalForm.reset();
             } catch (err) {
                 console.error(err);
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 messageDiv.innerHTML =
                     '<div class="message success">Got it \u2014 we\'ll be in touch.</div>';
+                if (typeof gtag === 'function') gtag('event', 'footer_form_submit', {});
                 footerForm.reset();
             } catch (err) {
                 console.error(err);
