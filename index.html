@@ -244,6 +244,8 @@
         <!-- Hidden metadata -->
         <input type="hidden" name="source" value="upskilled-consulting">
         <input type="hidden" name="origin" id="form-origin">
+        <!-- Honeypot: hidden from real users, bots fill it in -->
+        <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
         <div class="form-group">
           <label for="name">Name</label>

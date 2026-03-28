@@ -12,6 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = firebase.apps.length ? firebase.app() : firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore(app);
 
+    // --- Spam validation ---
+    function spamCheck(name, email, message, honeypot) {
+        if (honeypot) return 'Your message could not be sent.';
+        if (name.length > 20 && !name.includes(' '))
+            return 'Please enter your first and last name.';
+        const localPart = email.split('@')[0] || '';
+        if ((localPart.match(/\./g) || []).length > 2)
+            return 'Please use a valid email address.';
+        if (message.length < 10)
+            return 'Your message is too short. Please provide more detail.';
+        if (!message.includes(' '))
+            return 'Your message must contain more than one word.';
+        return null;
+    }
+
     // --- Modal contact form ---
     const modalForm = document.getElementById('contact-form');
     if (modalForm) {
@@ -20,13 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const name    = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const honeypot = (document.getElementById('hp-website') || {}).value || '';
+
+            const blocked = spamCheck(name, email, message, honeypot);
+            if (blocked) {
+                messageDiv.innerHTML = `<div class="message error">${blocked}</div>`;
+                return;
+            }
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Sending\u2026';
             try {
                 await db.collection('contacts').add({
-                    name:    document.getElementById('name').value.trim(),
-                    email:   document.getElementById('email').value.trim(),
-                    message: document.getElementById('message').value.trim(),
+                    name, email, message,
                     source:  modalForm.source.value,
                     origin:  modalForm.origin.value,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
