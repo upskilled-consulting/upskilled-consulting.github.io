@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Inconsolata', monospace;
+      background: #000;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 65% 35%, #0c1a17 0%, #060e0c 45%, #020404 75%, #000 100%);
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── Bokeh glows ── */
+    .glow-ring {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .glow-ring.g1 {
+      width: 420px; height: 420px;
+      top: -80px; right: -60px;
+      background: radial-gradient(circle, rgba(100,210,190,0.13) 0%, rgba(80,190,170,0.05) 50%, transparent 70%);
+    }
+    .glow-ring.g2 {
+      width: 260px; height: 260px;
+      bottom: -40px; left: 120px;
+      background: radial-gradient(circle, rgba(120,230,210,0.08) 0%, transparent 70%);
+    }
+    .glow-ring.g3 {
+      width: 180px; height: 180px;
+      top: 60px; right: 320px;
+      background: radial-gradient(circle, rgba(150,240,220,0.06) 0%, transparent 70%);
+    }
+
+    /* ── Grid overlay (right panel) ── */
+    .grid-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 460px;
+      height: 630px;
+      overflow: hidden;
+      opacity: 0.18;
+    }
+    .grid-panel svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Vertical separator ── */
+    .separator {
+      position: absolute;
+      left: 700px;
+      top: 60px;
+      bottom: 60px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(100,210,190,0.4) 20%,
+        rgba(120,230,210,0.6) 50%,
+        rgba(100,210,190,0.4) 80%,
+        transparent 100%
+      );
+    }
+
+    /* ── Scan-line texture ── */
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.06) 3px,
+        rgba(0,0,0,0.06) 4px
+      );
+      pointer-events: none;
+    }
+
+    /* ── Left content ── */
+    .content {
+      position: relative;
+      z-index: 10;
+      padding: 0 0 0 72px;
+      width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: rgba(120,230,210,0.75);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .eyebrow span {
+      color: rgba(120,230,210,0.35);
+    }
+
+    .wordmark {
+      font-size: 82px;
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: rgba(220,235,230,0.95);
+      text-shadow:
+        0 0 60px rgba(100,210,190,0.25),
+        0 0 120px rgba(80,190,170,0.1);
+      margin-bottom: 6px;
+    }
+    .wordmark .accent {
+      color: rgba(140,240,220,1);
+      text-shadow:
+        0 0 30px rgba(120,230,210,0.8),
+        0 0 80px rgba(100,210,190,0.4);
+    }
+
+    .sub-wordmark {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.34em;
+      color: rgba(180,210,205,0.55);
+      text-transform: uppercase;
+      margin-bottom: 34px;
+    }
+
+    .divider {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(to right, rgba(120,230,210,0.8), transparent);
+      margin-bottom: 28px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(200,225,220,0.75);
+      line-height: 1.55;
+      max-width: 520px;
+      margin-bottom: 38px;
+    }
+    .tagline strong {
+      color: rgba(220,235,230,0.95);
+      font-weight: 600;
+    }
+
+    .pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 42px;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border: 1px solid rgba(100,210,190,0.28);
+      border-radius: 2px;
+      color: rgba(120,230,210,0.8);
+      background: rgba(100,210,190,0.05);
+    }
+
+    .url-line {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(150,200,190,0.4);
+    }
+    .url-line .domain {
+      color: rgba(120,230,210,0.6);
+    }
+
+    /* ── Right panel content ── */
+    .right-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 460px;
+      height: 630px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stat-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-left: 56px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-size: 46px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: rgba(220,235,230,0.9);
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(100,210,190,0.3);
+    }
+    .stat-number .teal {
+      color: rgba(140,240,220,1);
+      text-shadow: 0 0 20px rgba(120,230,210,0.7), 0 0 60px rgba(100,210,190,0.3);
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(160,200,195,0.5);
+    }
+
+    .stat-divider {
+      width: 32px;
+      height: 1px;
+      background: rgba(100,210,190,0.2);
+      margin: 4px 0;
+    }
+
+    /* ── Corner marks ── */
+    .corner {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      z-index: 20;
+    }
+    .corner.tl { top: 24px; left: 24px; border-top: 1.5px solid rgba(100,210,190,0.4); border-left: 1.5px solid rgba(100,210,190,0.4); }
+    .corner.tr { top: 24px; right: 24px; border-top: 1.5px solid rgba(100,210,190,0.4); border-right: 1.5px solid rgba(100,210,190,0.4); }
+    .corner.bl { bottom: 24px; left: 24px; border-bottom: 1.5px solid rgba(100,210,190,0.4); border-left: 1.5px solid rgba(100,210,190,0.4); }
+    .corner.br { bottom: 24px; right: 24px; border-bottom: 1.5px solid rgba(100,210,190,0.4); border-right: 1.5px solid rgba(100,210,190,0.4); }
+
+    /* ── Bokeh dots ── */
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 5;
+    }
+    .dot.d1 { width: 3px; height: 3px; top: 88px; right: 380px; background: rgba(150,240,220,0.7); box-shadow: 0 0 6px rgba(120,230,210,0.8); }
+    .dot.d2 { width: 2px; height: 2px; top: 220px; right: 180px; background: rgba(150,240,220,0.5); box-shadow: 0 0 4px rgba(120,230,210,0.6); }
+    .dot.d3 { width: 4px; height: 4px; bottom: 140px; right: 280px; background: rgba(150,240,220,0.4); box-shadow: 0 0 8px rgba(120,230,210,0.5); }
+    .dot.d4 { width: 2px; height: 2px; top: 320px; left: 650px; background: rgba(150,240,220,0.6); box-shadow: 0 0 4px rgba(120,230,210,0.7); }
+    .dot.d5 { width: 3px; height: 3px; bottom: 90px; right: 120px; background: rgba(150,240,220,0.35); box-shadow: 0 0 6px rgba(120,230,210,0.4); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Glows -->
+    <div class="glow-ring g1"></div>
+    <div class="glow-ring g2"></div>
+    <div class="glow-ring g3"></div>
+
+    <!-- Grid panel (decorative SVG) -->
+    <div class="grid-panel">
+      <svg viewBox="0 0 460 630" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(100,210,190,1)" stroke-width="0.5"/>
+          </pattern>
+          <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="black" stop-opacity="1"/>
+            <stop offset="40%" stop-color="black" stop-opacity="0"/>
+            <stop offset="100%" stop-color="black" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="gridMask">
+            <rect width="460" height="630" fill="white"/>
+            <rect width="460" height="630" fill="url(#fade)"/>
+          </mask>
+        </defs>
+        <rect width="460" height="630" fill="url(#grid)" mask="url(#gridMask)"/>
+      </svg>
+    </div>
+
+    <!-- Separator -->
+    <div class="separator"></div>
+
+    <!-- Scanlines -->
+    <div class="scanlines"></div>
+
+    <!-- Corner marks -->
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <!-- Bokeh dots -->
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="dot d4"></div>
+    <div class="dot d5"></div>
+
+    <!-- Left content -->
+    <div class="content">
+      <div class="eyebrow"><span>[ </span>AI &amp; ML Consulting<span> ]</span></div>
+      <div class="wordmark">UP<span class="accent">SKILLED</span></div>
+      <div class="sub-wordmark">Consulting</div>
+      <div class="divider"></div>
+      <div class="tagline">
+        <strong>Computer vision, remote sensing, and ML solutions</strong><br>
+        for teams that need to ship — plus 50+ hours of free curriculum.
+      </div>
+      <div class="pills">
+        <div class="pill">Computer Vision</div>
+        <div class="pill">Remote Sensing</div>
+        <div class="pill">ML &amp; AI</div>
+        <div class="pill">Free Courses</div>
+      </div>
+      <div class="url-line">→ <span class="domain">upskilled.consulting</span></div>
+    </div>
+
+    <!-- Right panel stats -->
+    <div class="right-panel">
+      <div class="stat-stack">
+        <div class="stat-item">
+          <div class="stat-number"><span class="teal">50</span>+</div>
+          <div class="stat-label">Hours of Curriculum</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="teal">200</span>+</div>
+          <div class="stat-label">Students Trained</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="teal">10</span>+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /messaging-consent
+
+Sitemap: https://upskilled.consulting/sitemap.xml
