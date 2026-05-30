@@ -33,6 +33,19 @@
   <meta name="twitter:description" content="Upskilled Consulting specializes in computer vision, remote sensing, machine learning, and AI consulting. 50+ hours of free ML curriculum — plus expert consulting services.">
   <meta name="twitter:image" content="https://upskilled.consulting/assets/images/social-card.png">
 
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://upskilled.consulting/#website",
+    "name": "Upskilled Consulting",
+    "url": "https://upskilled.consulting",
+    "description": "Computer vision, ML & AI consulting — plus 50+ hours of free ML curriculum.",
+    "publisher": { "@id": "https://upskilled.consulting/#organization" }
+  }
+  </script>
+
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
@@ -43,7 +56,10 @@
     "url": "https://upskilled.consulting",
     "email": "get@upskilled.consulting",
     "description": "Upskilled Consulting specializes in computer vision, remote sensing, machine learning, and AI consulting.",
-    "logo": "https://upskilled.consulting/assets/images/logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://upskilled.consulting/assets/images/logo.png"
+    },
     "image": "https://upskilled.consulting/assets/images/social-card.png",
     "founder": {
       "@type": "Person",
@@ -51,9 +67,153 @@
       "name": "Nick McCarty",
       "url": "https://nickmccarty.me"
     },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "get@upskilled.consulting",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
     "serviceType": ["Computer Vision", "Machine Learning", "AI Consulting", "Remote Sensing", "Training & Education"],
     "areaServed": "Worldwide",
-    "knowsAbout": ["Computer Vision", "Remote Sensing", "Machine Learning", "Artificial Intelligence", "Neural Networks", "Deep Learning", "Python", "Linear Algebra", "Calculus", "Probability and Statistics"]
+    "knowsAbout": ["Computer Vision", "Remote Sensing", "Machine Learning", "Artificial Intelligence", "Neural Networks", "Deep Learning", "Python", "Linear Algebra", "Calculus", "Probability and Statistics"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Upskilled Consulting Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Computer Vision & Remote Sensing",
+            "description": "Transforming aerial imagery and geospatial data into actionable insights."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Machine Learning & AI",
+            "description": "Custom ML solutions that solve real business problems."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Training & Consulting",
+            "description": "Enterprise data science training and strategic technical guidance."
+          }
+        }
+      ]
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://upskilled.consulting/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Course carousel (ItemList) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Free ML & AI Courses — Upskilled Consulting",
+    "description": "50+ hours of free, professionally-crafted ML and AI curriculum. From foundational math to practical deep learning — completely free.",
+    "url": "https://upskilled.consulting/courses",
+    "numberOfItems": 6,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Course",
+          "name": "Linear Algebra for Machine Learning",
+          "description": "Vectors, matrices, linear transformations, eigenvalues, and SVD — the mathematical backbone of ML.",
+          "url": "https://upskilled.consulting/courses/prereq/linear-algebra/",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Beginner",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Course",
+          "name": "Calculus for Machine Learning",
+          "description": "Derivatives, gradients, chain rule, and optimization — the calculus that powers training neural networks.",
+          "url": "https://upskilled.consulting/courses/prereq/calculus-foundations/",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Beginner",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Course",
+          "name": "Probability & Statistics for ML",
+          "description": "Distributions, Bayes' theorem, hypothesis testing, and information theory for ML practitioners.",
+          "url": "https://upskilled.consulting/courses/prereq/probability-foundations/",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Beginner",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Course",
+          "name": "Python for Machine Learning",
+          "description": "Practical Python for ML — NumPy, pandas, PyTorch, and applied deep learning workflows.",
+          "url": "https://upskilled.consulting/courses",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Beginner",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Course",
+          "name": "Neural Network Architectures",
+          "description": "MLPs, CNNs, ResNets, RNNs, Transformers, and attention — how modern deep learning architectures are built.",
+          "url": "https://upskilled.consulting/courses/supplement/architectures/",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Intermediate",
+          "courseMode": "online"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Course",
+          "name": "Computer Vision",
+          "description": "Object detection, image segmentation, 3D Gaussian Splatting, and scene reconstruction with modern CV techniques.",
+          "url": "https://upskilled.consulting/courses/3dgs-compression/",
+          "provider": { "@id": "https://upskilled.consulting/#organization" },
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "educationalLevel": "Advanced",
+          "courseMode": "online"
+        }
+      }
+    ]
   }
   </script>
 
