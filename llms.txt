@@ -1,0 +1,63 @@
+# Upskilled Consulting
+
+> Expert consulting in computer vision, remote sensing, machine learning, and AI — plus 50+ hours of free ML curriculum, completely free.
+
+## Company
+
+Upskilled Consulting provides applied machine learning and AI consulting services to enterprises and startups. Founded and led by Nick McCarty, a data scientist and ML/AI consultant with 10+ years of experience. We've trained 200+ students at Fortune 500 companies and built production ML systems for clients in precision agriculture, geospatial analysis, and enterprise AI.
+
+- Email: get@upskilled.consulting
+- Website: https://upskilled.consulting
+- Courses: https://upskilled.consulting/courses
+
+## Services
+
+- **Computer Vision & Remote Sensing**: Object detection on drone orthomosaics, 3D reconstruction using photogrammetry and 3D Gaussian Splatting, geospatial AI pipelines for precision agriculture and infrastructure inspection
+- **Machine Learning & AI**: Custom ML solution development, fine-tuning vision foundation models (SAM, Faster R-CNN), production inference infrastructure
+- **Training & Consulting**: Enterprise data science training, curriculum development, strategic technical guidance for teams building ML-powered products
+
+## Free Course Platform
+
+50+ hours of free, professionally-crafted ML and AI curriculum — completely free, no prerequisites, self-paced.
+
+### Prerequisite Courses (Foundational Math)
+- Linear Algebra: https://upskilled.consulting/courses/prereq/linear-algebra/
+- Matrix Algebra: https://upskilled.consulting/courses/prereq/matrix-algebra/
+- Calculus Foundations: https://upskilled.consulting/courses/prereq/calculus-foundations/
+- Probability & Statistics: https://upskilled.consulting/courses/prereq/probability-foundations/
+
+### Supplement Courses (Deep Learning Building Blocks)
+- Neural Network Architectures: https://upskilled.consulting/courses/supplement/architectures/
+- Activation Functions: https://upskilled.consulting/courses/supplement/activation-functions/
+- Loss Functions: https://upskilled.consulting/courses/supplement/loss-functions/
+- Optimizers: https://upskilled.consulting/courses/supplement/optimizers/
+- Regularization: https://upskilled.consulting/courses/supplement/regularization/
+- Normalization: https://upskilled.consulting/courses/supplement/normalization/
+- Weight Initialization: https://upskilled.consulting/courses/supplement/weight-initialization/
+
+### Full Courses
+- 3D Gaussian Splatting & Compression: https://upskilled.consulting/courses/3dgs-compression/
+- Deep Reinforcement Learning: https://upskilled.consulting/courses/deep-rl/
+- Harness Engineering for AI Agents: https://upskilled.consulting/courses/harness-engineering/
+
+## Recent Work
+
+### Publication
+"Object Detection on Drone Orthomosaics with Meta's SAM" — SciPy 2025
+DOI: 10.25080/uhje9464 | URL: https://doi.org/10.25080/uhje9464
+Presented methodology for using Meta's Segment Anything Model on high-resolution drone orthomosaics for precision agriculture applications.
+
+### Speaking
+"Reimagining Mapping with AI and Scalable Technologies" — Geo Week 2026
+Date: February 17, 2026 | Location: Colorado Convention Center, Denver, CO
+Panel on the intersection of AI, geospatial technology, and scalable solutions.
+
+## Site Structure
+
+- / — Homepage (services, work, courses, FAQ, contact)
+- /#services — Computer Vision, ML & AI, Training & Consulting
+- /#work — Research publications and project case studies
+- /#courses — Free course platform overview
+- /#faq — Common questions about services and courses
+- /#about — Company background and credentials
+- /#contact — Contact form
