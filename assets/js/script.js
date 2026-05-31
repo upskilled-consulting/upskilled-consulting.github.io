@@ -56,7 +56,7 @@ function animateHero() {
     if (particles) setTimeout(() => particles.classList.add('visible'), 200);
     if (aurora) setTimeout(() => aurora.classList.add('active'), 400);
     if (logo) setTimeout(() => logo.classList.add('visible'), 600);
-    if (companyName) setTimeout(() => companyName.classList.add('visible'), 1000);
+    if (companyName) setTimeout(() => companyName.classList.add('visible'), 50);
     if (tagline) setTimeout(() => tagline.classList.add('visible'), 1200);
     if (ctaButton) setTimeout(() => ctaButton.classList.add('visible'), 1400);
     if (scrollIndicator) setTimeout(() => scrollIndicator.classList.add('visible'), 2000);
