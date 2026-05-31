@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const formLoadTime = Date.now();
+
     const firebaseConfig = {
         apiKey: "AIzaSyBV6dwTqKhJSlmyrV3g8aLSYrBwIVQXOKo",
         authDomain: "nickmccarty-site.firebaseapp.com",
@@ -15,15 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Spam validation ---
     function spamCheck(name, email, message, honeypot) {
         if (honeypot) return 'Your message could not be sent.';
-        if (name.length > 20 && !name.includes(' '))
+        if (Date.now() - formLoadTime < 3000) return 'Your message could not be sent.';
+
+        // Name: too long without a space, or no vowels at all (random string)
+        if (name.length > 12 && !name.includes(' '))
             return 'Please enter your first and last name.';
+        if (name.length > 4 && !/[aeiouAEIOU]/.test(name))
+            return 'Please enter a valid name.';
+
+        // Email: excessive dots or number+dot pattern in local part
         const localPart = email.split('@')[0] || '';
         if ((localPart.match(/\./g) || []).length > 2)
             return 'Please use a valid email address.';
-        if (message.length < 10)
-            return 'Your message is too short. Please provide more detail.';
-        if (!message.includes(' '))
-            return 'Your message must contain more than one word.';
+        if (/\d+\.\d+/.test(localPart))
+            return 'Please use a valid email address.';
+
+        // Message (when required)
+        if (message !== null) {
+            if (message.length < 10)
+                return 'Your message is too short. Please provide more detail.';
+            if (!message.includes(' '))
+                return 'Your message must contain more than one word.';
+        }
+
         return null;
     }
 
@@ -77,14 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         footerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('footer-email').value.trim();
+            const name     = document.getElementById('footer-name').value.trim();
+            const email    = document.getElementById('footer-email').value.trim();
+            const honeypot = (document.getElementById('hp-website-footer') || {}).value || '';
             if (!email) return;
+
+            const blocked = spamCheck(name, email, null, honeypot);
+            if (blocked) { messageDiv.innerHTML = `<div class="message error">${blocked}</div>`; return; }
+
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending\u2026';
             try {
                 await db.collection('contacts').add({
-                    name:    document.getElementById('footer-name').value.trim(),
-                    email,
+                    name, email,
                     message: '',
                     source:  'footer',
                     origin:  'footer',
