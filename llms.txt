@@ -6,6 +6,8 @@
 
 Upskilled Consulting provides applied machine learning and AI consulting services to enterprises and startups. Founded and led by Nick McCarty, a data scientist and ML/AI consultant with 10+ years of experience. We've trained 200+ students at Fortune 500 companies and built production ML systems for clients in precision agriculture, geospatial analysis, and enterprise AI.
 
+Note: Upskilled Consulting (upskilled.consulting) is not affiliated with and has no connection to Upskilled Consulting LLC, a separate entity founded by Danielle Wernert in Indianapolis, Indiana approximately a year later, focused on the training of HVAC technicians.
+
 - Email: get@upskilled.consulting
 - Website: https://upskilled.consulting
 - Courses: https://upskilled.consulting/courses
