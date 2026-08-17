@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a live demo — Upskilled Consulting</title>
+<meta name="description" content="Local, auditable vulnerability localization — every model runs on your own hardware, with no third-party API calls. Watch it work, then book a live demo.">
+<link rel="canonical" href="https://upskilled.consulting/contact">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://upskilled.consulting/contact">
+<meta property="og:title" content="Request a live demo — Upskilled Consulting">
+<meta property="og:description" content="Vulnerability localization with no third-party API calls. Three open models, one workstation, a sandbox with no network.">
+<meta property="og:image" content="https://upskilled.consulting/assets/images/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* STANDALONE, DELIBERATELY. This page does NOT load assets/css/style.css: that sheet styles the
+     SPA and owns `.hero` (min-height:100vh) and bare `section` (60px padding), both of which this
+     layout would otherwise inherit -- the first draft rendered with two screens of dead space
+     because of exactly that. Everything here is scoped `dm-`, and the palette below is copied
+     from the site sheet so the two still match: black ground, Inconsolata, teal accent. */
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --ink:rgba(220,235,230,.9); --bright:#eaf6f2; --dim:rgba(180,210,200,.62);
+    --faint:rgba(160,195,185,.4); --teal:#14b8a6; --teal-deep:#0d9488; --mint:#a7f3d0;
+    --line:rgba(20,184,166,.18);
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inconsolata',monospace; background:#000; color:var(--ink);
+        line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; }
+
+  .dm-wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  .dm-bar{ display:flex; align-items:center; justify-content:space-between; gap:20px;
+           padding:24px 0 0; }
+  .dm-bar .dm-home{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .dm-bar img{ width:32px; height:32px; display:block; }
+  .dm-bar .dm-name{ font-size:12.5px; letter-spacing:.32em; text-transform:uppercase;
+                    color:var(--dim); }
+  .dm-bar nav{ display:flex; gap:26px; font-size:14px; }
+  .dm-bar nav a{ color:var(--dim); text-decoration:none; transition:color .18s ease; }
+  .dm-bar nav a:hover{ color:var(--mint); }
+
+  .dm-head{ padding:58px 0 0; text-align:center; }
+  .dm-eyebrow{ font-size:12px; letter-spacing:.32em; text-transform:uppercase; color:var(--teal);
+               margin-bottom:18px; }
+  .dm-head h1{ font-size:clamp(28px,4.2vw,50px); font-weight:500; line-height:1.24;
+               margin:0 0 18px; color:var(--bright); }
+  .dm-head h1 .dm-accent{ color:var(--mint); }
+  .dm-lede{ font-size:clamp(15px,1.65vw,18px); color:var(--dim); max-width:700px;
+            margin:0 auto; line-height:1.75; }
+
+  .dm-player{ margin:40px 0 12px; border-radius:14px; overflow:hidden;
+              border:1px solid var(--line); background:#05080a;
+              box-shadow:0 24px 70px rgba(0,0,0,.75), 0 0 90px rgba(20,184,166,.10); }
+  .dm-player iframe{ display:block; border:0; }
+  .dm-cap{ text-align:center; font-size:13.5px; color:var(--faint); margin-bottom:56px;
+           line-height:1.7; }
+  .dm-cap b{ color:var(--dim); font-weight:400; }
+
+  .dm-claims{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;
+              margin-bottom:56px; }
+  .dm-claim{ border:1px solid var(--line); border-radius:12px; padding:24px 22px;
+             background:linear-gradient(180deg,rgba(20,184,166,.05),rgba(0,0,0,0)); }
+  .dm-claim h3{ font-size:12.5px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+                color:var(--teal); margin:0 0 11px; }
+  .dm-claim p{ font-size:14.5px; color:var(--dim); line-height:1.7; }
+  .dm-claim code{ color:var(--mint); font-size:13.5px; }
+
+  .dm-bound{ border-left:2px solid var(--teal-deep); padding:2px 0 2px 20px;
+             margin:0 auto 56px; max-width:760px; font-size:15px; color:var(--dim);
+             line-height:1.78; }
+  .dm-bound b{ color:var(--bright); font-weight:400; }
+
+  .dm-cta{ text-align:center; padding:4px 0 80px; }
+  .dm-cta h2{ font-size:clamp(21px,2.5vw,30px); font-weight:500; color:var(--bright);
+              margin:0 0 12px; }
+  .dm-cta > p{ color:var(--dim); font-size:15px; margin:0 0 28px; }
+  .dm-mail{ display:inline-block; font-size:clamp(17px,2.2vw,25px); color:var(--mint);
+            text-decoration:none; padding:14px 32px; border:1px solid var(--line);
+            border-radius:10px; background:rgba(20,184,166,.05);
+            transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  .dm-mail:hover{ border-color:var(--teal); box-shadow:0 0 34px rgba(20,184,166,.22);
+                  transform:translateY(-1px); }
+  .dm-small{ margin-top:20px; font-size:13.5px; color:var(--faint); }
+  .dm-small a{ color:var(--dim); }
+
+  .dm-foot{ border-top:1px solid rgba(255,255,255,.06); padding:24px 0 36px; text-align:center;
+            font-size:13px; color:var(--faint); }
+  .dm-foot a{ color:var(--dim); text-decoration:none; }
+
+  @media (max-width:640px){
+    .dm-bar nav{ display:none; }
+    .dm-head{ padding:34px 0 0; }
+    .dm-player{ margin:26px 0 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="dm-wrap">
+  <div class="dm-bar">
+    <a class="dm-home" href="/">
+      <img src="./assets/images/logo.png" alt="">
+      <span class="dm-name">Upskilled Consulting</span>
+    </a>
+    <nav>
+      <a href="/#services">Services</a>
+      <a href="/#work">Work</a>
+      <a href="/#courses">Courses</a>
+      <a href="/#about">About</a>
+    </nav>
+  </div>
+
+  <div class="dm-head">
+    <div class="dm-eyebrow">Live demo</div>
+    <h1>Security review with<br><span class="dm-accent">no third-party API calls.</span></h1>
+    <p class="dm-lede">
+      Some codebases cannot be sent to someone else's model &mdash; not encrypted, not redacted,
+      not at all. This runs entirely on your own hardware: three open models on one workstation,
+      in a sandbox with no network.
+    </p>
+  </div>
+
+  <div class="dm-player">
+    <iframe
+      src="https://player.cloudinary.com/embed/?cloud_name=da8kzrluj&public_id=ctarp-demo-122555_xkevh7"
+      width="640" height="360"
+      style="height:auto; width:100%; aspect-ratio: 640 / 360;"
+      allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+      allowfullscreen title="ctarp — local vulnerability localization"></iframe>
+  </div>
+  <p class="dm-cap">
+    A real disclosure: <b>CVE-2024-2952</b>, a critical server-side template injection, run against
+    the commit <b>before</b> its fix &mdash; with no advisory text and no hint of the answer.
+  </p>
+
+  <div class="dm-claims">
+    <div class="dm-claim">
+      <h3>Local</h3>
+      <p>Three open models on one box. The sandbox runs <code>--network=none</code>. Nothing is
+         uploaded, because there is nowhere for it to go.</p>
+    </div>
+    <div class="dm-claim">
+      <h3>Legible</h3>
+      <p>Every tool call, every citation, every line it read &mdash; streamed while it works, then
+         written to a markdown casefile you can diff and keep.</p>
+    </div>
+    <div class="dm-claim">
+      <h3>Calibrated</h3>
+      <p>Confidence is measured, not asserted. Claims that fail verification are marked as
+         failures rather than quietly dropped.</p>
+    </div>
+  </div>
+
+  <!-- The bound, on the page rather than left for the reader to find out. A tool whose pitch is
+       calibration cannot hide its own miss rate. -->
+  <p class="dm-bound">
+    On a benchmark of six real disclosures it finds the right file in three. It is a
+    <b>locator, not a detector</b> &mdash; it ranks files against a mechanism you describe and
+    shows you why it believes each one. Describing the mechanism is still your job. The bottleneck
+    was never generating candidates; it is trusting them.
+  </p>
+
+  <div class="dm-cta">
+    <h2>Start a conversation</h2>
+    <p>Tell us what you are reviewing, and what cannot leave your network.</p>
+    <a class="dm-mail" href="mailto:get@upskilled.consulting?subject=Live%20demo%20request%20%E2%80%94%20ctarp&amp;body=What%20we%20review%3A%0AConstraints%20(what%20cannot%20leave%20our%20network)%3A%0APreferred%20times%3A%0A">get@upskilled.consulting</a>
+    <p class="dm-small">
+      Prefer LinkedIn? <a href="https://linkedin.com/in/nicholasmccarty" target="_blank" rel="noopener">Message us there</a>.
+    </p>
+  </div>
+</div>
+
+<div class="dm-foot"><a href="/">upskilled.consulting</a></div>
+
+</body>
+</html>
