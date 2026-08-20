@@ -67,6 +67,7 @@
   /* ---------- checklist rows ---------- */
   .row { display:flex; gap:10px; padding:4px 0; border-top:1px solid var(--line); break-inside:avoid; }
   .row:first-of-type { border-top:0; }
+  .two.flat .row { border-top:0; padding:2px 0; }
   .box {
     width:13px; height:13px; border:1.7px solid var(--violet); border-radius:3.5px;
     flex:none; margin-top:2px; background:#fff;
@@ -400,7 +401,7 @@
     <div class="sec">
       <h2>Never goes in the prompt</h2>
       <p class="lede">One page, four bullets, circulated once. It costs nothing to strip these out — and a great deal to explain them.</p>
-      <div class="two" style="gap:0 22px;">
+      <div class="two flat" style="gap:0 22px;">
         <div>
           <div class="row"><div class="box"></div><div class="t"><b>API keys, passwords, tokens</b></div></div>
           <div class="row"><div class="box"></div><div class="t"><b>Customer names, emails, card data</b></div></div>
