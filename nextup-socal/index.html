@@ -557,6 +557,62 @@
   </aside>
 </section>
 
+<!-- ══════════════════════════════════════════════ 23 · LIVE DEMO ════════ -->
+<section class="slide dark" id="s-demo">
+  <div class="slide-head" style="position:relative;z-index:2;">
+    <span class="kicker">Live demo</span>
+    <h2>This is what <span class="hl">&ldquo;it reads constantly&rdquo;</span> looks like.</h2>
+  </div>
+  <div class="slide-body tight" style="position:relative;z-index:2;">
+    <div class="split wide-left">
+      <div>
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -24px rgba(0,0,0,.55);">
+          <iframe
+            src="https://player.cloudinary.com/embed/?cloud_name=da8kzrluj&public_id=ctarp-demo-122555_xkevh7"
+            style="display:block;width:100%;aspect-ratio:640/360;border:0;"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+            allowfullscreen title="Live agent run — watch the token throughput"></iframe>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <div class="bignum md" style="font-size:44px;">25&times;</div>
+          <div class="numlabel">reads for every write</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#C3BCEA;margin-bottom:4px;">
+              <span>Reads (in)</span><span>500,000/day</span>
+            </div>
+            <div style="height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden;">
+              <div style="height:100%;width:100%;background:var(--grad-brand);"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#C3BCEA;margin-bottom:4px;">
+              <span>Writes (out)</span><span>20,000/day</span>
+            </div>
+            <div style="height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden;">
+              <div style="height:100%;width:4%;background:var(--teal-bright);"></div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#A79FDB;line-height:1.5;margin:0;">
+          Same shape as Scenario 2, a few slides back. This is what that ratio looks like actually running.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot-bar" data-src="ctarp, an agentic security scanner, localizing CVE-2024-2952 against the commit before its fix — no advisory, no hint, just tokens. Read/write ratio shown at left uses Scenario 2's figures."></footer>
+  <aside class="notes">
+    <p>This is unscripted — press play and let it run. It is <strong>ctarp</strong>, a security tool I built, localizing a real CVE with no advisory text and no hint of the answer.</p>
+    <p>Do not narrate the security story. The point of this slide is the <em>speed and volume</em> of the reading, not the vulnerability. Let the room watch the tokens move.</p>
+    <p>The card on the right reuses Scenario 2's own numbers (500,000 in / 20,000 out) — point at it once, then let the video carry the rest.</p>
+    <p class="say">"This is the Level 3 agent from slide two, actually running. Watch how much it reads before it writes a single word."</p>
+    <p>If it runs long, let it play under the next slide's discussion rather than cutting it off mid-thought.</p>
+  </aside>
+</section>
+
 <!-- ═════════════════════════════════════════════════ 22 · CLOSE ═════════ -->
 <section class="slide dark" id="s-close">
   <div class="viz-bg" data-viz="titlefield"></div>
@@ -643,7 +699,7 @@
       <dt>→ · space · click</dt><dd>Next build / next slide</dd>
       <dt>← · right-click</dt><dd>Previous build / previous slide</dd>
       <dt>↑ ↓</dt><dd>Skip a whole slide (past its builds)</dd>
-      <dt>1–23 then pause</dt><dd>Jump straight to a slide number</dd>
+      <dt>1–24 then pause</dt><dd>Jump straight to a slide number</dd>
       <dt>S</dt><dd>Open the speaker-notes window</dd>
       <dt>O · Esc</dt><dd>Overview grid — click any slide to jump</dd>
       <dt>F</dt><dd>Fullscreen</dd>
