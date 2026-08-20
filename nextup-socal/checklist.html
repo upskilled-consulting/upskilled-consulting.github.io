@@ -137,6 +137,29 @@
     text-align:right; white-space:nowrap;
   }
 
+  /* ---------- small screens: this is a print page, not a webpage ----------
+     On a phone the fixed 8.5in width overflows the viewport, so the browser
+     zooms out to fit it — the page reads as tiny and "zoomed in" on whatever
+     corner it lands on. Below the page's own width, let it flow like a normal
+     responsive page instead. @media print is untouched, so the PDF export
+     still gets an exact 8.5in x 11in sheet. */
+  @media screen and (max-width: 900px) {
+    body { padding:16px 0; }
+    .page {
+      width:100%; max-width:100%; height:auto; min-height:0; overflow:visible;
+    }
+    .mast { padding:16px 20px 14px; }
+    .mast .meta { position:static; text-align:left; margin-top:10px; }
+    .body { padding:0 20px; }
+    .two { grid-template-columns:1fr; gap:20px; }
+    .foot { flex-direction:column; align-items:flex-start; gap:12px; margin:20px 20px 0; }
+    /* The 5-column table squeezes its headers into an unreadable wrap at
+       this width - give it room to breathe in a scrollable strip instead
+       of forcing every column to shrink. */
+    .tscroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    table.wide { min-width:560px; }
+  }
+
   @page { size:8.5in 11in; margin:0; }
   @media print {
     body { background:#fff; padding:0; }
@@ -370,7 +393,8 @@
     <div class="sec">
       <h2>What scale does</h2>
       <p class="lede">Same 600 people. Same 250 working days. Same price list. The only variable is how the tool is used.</p>
-      <table>
+      <div class="tscroll">
+      <table class="wide">
         <tr>
           <th>Pattern</th><th class="r">Input / person / day</th><th class="r">Output</th>
           <th class="r">Per year</th><th class="r">Per person</th>
@@ -391,6 +415,7 @@
           <td class="r v">$525,000</td><td class="r v">$875.00</td>
         </tr>
       </table>
+      </div>
       <div class="note">
         <b>Agents read far more than they write.</b> Nothing about the price list changes between
         these rows — the tool simply starts reading on your behalf. That is the entire cost story.
