@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: 'denied' });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CRTJRZ551"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-3CRTJRZ551');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reducing AI Operating Costs — NextUp SoCal</title>
@@ -15,6 +26,18 @@
 <!-- ═══════════════════════════════════════════════════ 01 · TITLE ═══════ -->
 <section class="slide dark" id="s-title">
   <div class="viz-bg" data-viz="titlefield"></div>
+  <div class="qr-block compact" style="position:absolute; top:34px; right:56px; z-index:3;">
+    <div class="qr-frame">
+      <div class="qr-ring">
+        <div class="qr-card">
+          <img src="assets/qr-code.png" alt="Scan for the slides, the cost checklist, and contact details">
+        </div>
+      </div>
+      <i class="qr-corner tl"></i><i class="qr-corner tr"></i>
+      <i class="qr-corner bl"></i><i class="qr-corner br"></i>
+    </div>
+    <div class="qr-cap"><b>Grab the slides</b></div>
+  </div>
   <div class="slide-head" style="padding-top:130px; position:relative; z-index:2;">
     <span class="kicker">NextUp SoCal · Virtual Event</span>
     <h1 style="font-family:var(--display);font-weight:800;font-size:82px;line-height:1.0;letter-spacing:-.035em;margin-top:20px;">
@@ -42,7 +65,7 @@
     <p class="say">"On June 5, Ashika showed you the AI Maturity Ladder and told you to climb it. Today I'm here with the invoice."</p>
     <p>Frame the hour: <em>this is not an anti-AI talk.</em> It's a "pay the right amount" talk. Everything here assumes you're already adopting.</p>
     <p>Room note: this is NextUp SoCal — executive women who already have, or are close to having, budget authority. The ask today is fluency, not permission. Speak to peers who will use these numbers in their own meetings next week.</p>
-    <p>Housekeeping: 60 minutes, Q&amp;A at the end, deck + a one-page checklist go out afterward.</p>
+    <p>Housekeeping: 60 minutes, Q&amp;A at the end, deck + a one-page checklist go out afterward. Point out the QR in the corner — "scan it now, follow along on your own screen, no need to wait for the end."</p>
     <p><strong>Press S</strong> for this window, <strong>F</strong> for fullscreen, <strong>?</strong> for all shortcuts.</p>
   </aside>
 </section>
@@ -631,5 +654,6 @@
 <script src="vendor/d3.v7.min.js"></script>
 <script src="js/deck.js"></script>
 <script src="js/slides.js"></script>
+<script defer src="js/consent.js"></script>
 </body>
 </html>
