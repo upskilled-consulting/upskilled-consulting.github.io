@@ -24,10 +24,10 @@
             '.ucc-text{flex:1 1 320px;color:#eee;font-size:.92rem;line-height:1.5;margin:0;}',
             '.ucc-actions{display:flex;gap:10px;flex:0 0 auto;}',
             '.ucc-btn{font-family:inherit;font-size:.9rem;font-weight:500;padding:.6rem 1.1rem;',
-            'border-radius:8px;cursor:pointer;border:1px solid transparent;transition:background .2s ease,border-color .2s ease;}',
+            'border-radius:8px;cursor:pointer;border:none;box-sizing:border-box;transition:background .2s ease,border-color .2s ease;}',
             '.ucc-btn-accept{background:#0d9488;color:#fff;}',
             '.ucc-btn-accept:hover{background:#14b8a6;}',
-            '.ucc-btn-reject{background:transparent;color:#ccc;border-color:#3a3a3a;}',
+            '.ucc-btn-reject{background:transparent;color:#ccc;border:1px solid #3a3a3a;}',
             '.ucc-btn-reject:hover{border-color:#666;color:#fff;}',
             '@media (max-width:520px){.ucc-actions{width:100%;}.ucc-btn{flex:1;}}'
         ].join('');

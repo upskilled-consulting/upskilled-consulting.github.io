@@ -28,10 +28,10 @@
             '.ucc-actions{display:flex;gap:10px;flex:0 0 auto;}',
             '.ucc-btn{font-family:var(--display,\'Sora\',\'Segoe UI\',system-ui,sans-serif);',
             'font-size:13.5px;font-weight:800;padding:.62rem 1.15rem;border-radius:10px;cursor:pointer;',
-            'border:1.5px solid transparent;transition:filter .18s ease,border-color .18s ease;}',
+            'border:none;box-sizing:border-box;transition:filter .18s ease,border-color .18s ease;}',
             '.ucc-btn-accept{background:var(--grad-brand,linear-gradient(125deg,#4B3BB0,#6A57DB,#35C6D0));color:#fff;}',
             '.ucc-btn-accept:hover{filter:brightness(1.08);}',
-            '.ucc-btn-reject{background:transparent;color:#C3BCEA;border-color:rgba(255,255,255,.28);}',
+            '.ucc-btn-reject{background:transparent;color:#C3BCEA;border:1.5px solid rgba(255,255,255,.28);}',
             '.ucc-btn-reject:hover{border-color:rgba(255,255,255,.55);color:#fff;}',
             '@media (max-width:560px){.ucc-actions{width:100%;}.ucc-btn{flex:1;}}',
             '@media print{.ucc-bar{display:none !important;}}'
