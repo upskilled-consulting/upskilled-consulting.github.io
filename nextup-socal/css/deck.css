@@ -1,0 +1,526 @@
+/* ==========================================================================
+   Reducing AI Operating Costs — NextUp SoCal · Fri Aug 21, 2026 · 12PM PST
+   Vanilla deck engine styles. Design canvas: 1280 x 720 (16:9), scaled to fit.
+   Palette inherited from infographics/brand.css (indigo -> violet -> teal).
+   ========================================================================== */
+
+@import url('../vendor/fonts.css');
+
+:root {
+  --indigo:      #2E236F;
+  --indigo-deep: #221A54;
+  --violet:      #5B3FD6;
+  --purple:      #6E5CE8;
+  --blue:        #3E8FC9;
+  --teal:        #2FBFC8;
+  --teal-bright: #59DBDE;
+  --teal-ink:    #0E6A72;
+
+  --c1: #33287C; --c2: #4B3BB0; --c3: #6A57DB; --c4: #3E8FC9; --c5: #2FBFC8;
+
+  --warn:  #D4763A;
+  --alarm: #C4443F;
+  --good:  #2C9E7E;
+
+  --grad-brand: linear-gradient(125deg, #4B3BB0 0%, #6A57DB 45%, #35C6D0 100%);
+  --grad-cool:  linear-gradient(135deg, #2E236F 0%, #5B3FD6 55%, #35C6D0 100%);
+  --grad-dark:  linear-gradient(160deg, #2C2168 0%, #201849 60%, #17123A 100%);
+  --grad-soft:  linear-gradient(140deg, rgba(94,79,233,.10), rgba(53,198,208,.10));
+
+  --ink:      #1A2138;
+  --ink-soft: #5B647E;
+  --ink-mute: #97A0B7;
+  --line:     rgba(46, 35, 111, 0.12);
+  --paper:    #FAFBFE;
+  --card:     #FFFFFF;
+
+  --radius: 20px;
+  --radius-sm: 13px;
+  --shadow:    0 20px 50px -18px rgba(34, 27, 84, 0.26);
+  --shadow-sm: 0 10px 26px -14px rgba(34, 27, 84, 0.22);
+
+  --sans: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'SFMono-Regular', 'Cascadia Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: #100E24;
+  font-family: var(--sans);
+  color: var(--ink);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Stage: fixed design canvas, scaled to viewport ---------------------- */
+#viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+#stage {
+  position: relative;
+  width: 1280px; height: 720px;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* --- Slides -------------------------------------------------------------- */
+.slide {
+  position: absolute; inset: 0;
+  display: none;
+  flex-direction: column;
+  background:
+    radial-gradient(760px 380px at 88% -10%, rgba(94,79,233,.07), transparent 62%),
+    radial-gradient(660px 360px at -6% 110%, rgba(47,191,200,.075), transparent 62%),
+    var(--paper);
+  overflow: hidden;
+}
+.slide.active { display: flex; }
+.slide.active > * { animation: slideIn .42s cubic-bezier(.22,.7,.3,1) both; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Dark "moment" slides */
+.slide.dark {
+  background:
+    radial-gradient(720px 420px at 82% -12%, rgba(110,92,232,.30), transparent 62%),
+    radial-gradient(640px 400px at -4% 108%, rgba(47,191,200,.20), transparent 62%),
+    #1A1440;
+  color: #fff;
+}
+.slide.dark .kicker { color: var(--teal-bright); }
+.slide.dark h1, .slide.dark h2 { color: #fff; }
+.slide.dark .sub, .slide.dark .lede { color: #C3BCEA; }
+.slide.dark .foot-bar { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.42); }
+
+/* --- Slide furniture ----------------------------------------------------- */
+.kicker {
+  display: inline-flex; align-items: center; gap: 11px;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--violet);
+}
+.kicker::before { content: ""; width: 26px; height: 3px; border-radius: 3px; background: var(--grad-brand); }
+.slide.dark .kicker::before { background: linear-gradient(125deg, #9C8BFF, #59DBDE); }
+
+.slide-head { padding: 40px 64px 0; flex-shrink: 0; }
+.slide-head h2 {
+  font-family: var(--display); font-weight: 800; font-size: 44px;
+  line-height: 1.06; letter-spacing: -.026em; color: var(--indigo); margin-top: 11px;
+}
+.slide-head h2.sm { font-size: 37px; }
+.slide-head .sub {
+  margin-top: 10px; font-size: 18.5px; line-height: 1.4; color: var(--ink-soft);
+  font-weight: 500; max-width: 960px;
+}
+.hl { background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.slide.dark .hl { background: linear-gradient(120deg, #7BE9EC, #B9A9FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.slide-body { flex: 1; padding: 20px 64px 0; display: flex; flex-direction: column; min-height: 0; }
+.slide-body.tight { padding-top: 10px; }
+
+.foot-bar {
+  flex-shrink: 0; margin: 0 64px; padding: 11px 0 16px;
+  border-top: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  font-size: 12px; color: var(--ink-mute); font-weight: 600; letter-spacing: .04em;
+}
+.foot-bar .ev { text-transform: uppercase; letter-spacing: .14em; font-size: 10.5px; white-space: nowrap; }
+.foot-bar .src { font-weight: 500; letter-spacing: 0; font-size: 11px; text-align: right; max-width: 66%; line-height: 1.35; }
+
+/* --- Cards --------------------------------------------------------------- */
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  padding: 20px 22px;
+}
+.slide.dark .card { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.13); box-shadow: none; }
+.card h3 { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--indigo); letter-spacing: -.01em; }
+.slide.dark .card h3 { color: #fff; }
+.card p { font-size: 15px; line-height: 1.48; color: var(--ink-soft); margin-top: 6px; }
+.slide.dark .card p { color: #BDB6E4; }
+.card .cap { font-size: 11.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-mute); }
+
+.grid { display: grid; gap: 15px; }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; flex: 1; min-height: 0; }
+.split.wide-left { grid-template-columns: 1.4fr 1fr; }
+.split.wide-right { grid-template-columns: 1fr 1.4fr; }
+
+/* --- Big numbers --------------------------------------------------------- */
+.bignum {
+  font-family: var(--display); font-weight: 800; letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums; line-height: .95;
+  background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.slide.dark .bignum { background: linear-gradient(120deg, #7BE9EC, #B9A9FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.bignum.xl { font-size: 104px; }
+.bignum.lg { font-size: 72px; }
+.bignum.md { font-size: 48px; }
+.bignum.plain { background: none; color: var(--indigo); -webkit-text-fill-color: currentColor; }
+.slide.dark .bignum.plain { color: #fff; -webkit-text-fill-color: currentColor; }
+.bignum.alarm { background: linear-gradient(120deg, #E0705F, #C4443F); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.numlabel { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; color: var(--ink-mute); margin-top: 7px; }
+.slide.dark .numlabel { color: #8F86C4; }
+
+/* --- Chips / pills ------------------------------------------------------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 13px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+  background: var(--grad-soft); color: var(--violet); border: 1px solid rgba(94,79,233,.18);
+}
+.pill.teal { color: var(--teal-ink); background: rgba(47,191,200,.10); border-color: rgba(47,191,200,.26); }
+.pill.warn { color: #9A4D18; background: rgba(212,118,58,.10); border-color: rgba(212,118,58,.28); }
+.pill.alarm { color: #A5322D; background: rgba(196,68,63,.09); border-color: rgba(196,68,63,.26); }
+.slide.dark .pill { background: rgba(255,255,255,.09); color: #CFC7FF; border-color: rgba(255,255,255,.18); }
+
+.token-chip {
+  display: inline-block; padding: 3px 8px; margin: 2px; border-radius: 7px;
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  background: rgba(94,79,233,.09); border: 1px solid rgba(94,79,233,.20); color: var(--indigo);
+}
+
+/* --- Lists --------------------------------------------------------------- */
+ul.ticks { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+ul.ticks li { position: relative; padding-left: 32px; font-size: 16.5px; line-height: 1.42; color: var(--ink-soft); font-weight: 500; }
+ul.ticks li strong { color: var(--indigo); font-weight: 700; }
+ul.ticks li::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 7px;
+  background: var(--grad-brand); opacity: .16;
+}
+ul.ticks li::after {
+  content: ""; position: absolute; left: 6px; top: 8px; width: 8px; height: 4.5px;
+  border-left: 2px solid var(--violet); border-bottom: 2px solid var(--violet);
+  transform: rotate(-45deg);
+}
+.slide.dark ul.ticks li { color: #C3BCEA; }
+.slide.dark ul.ticks li strong { color: #fff; }
+.slide.dark ul.ticks li::after { border-color: var(--teal-bright); }
+
+/* --- Fragments (step-through builds) ------------------------------------- */
+.frag { opacity: 0; transition: opacity .38s ease, transform .38s cubic-bezier(.22,.7,.3,1), filter .38s ease; }
+.frag.up    { transform: translateY(16px); }
+.frag.left  { transform: translateX(-18px); }
+.frag.right { transform: translateX(18px); }
+.frag.scale { transform: scale(.94); }
+.frag.on { opacity: 1; transform: none; }
+.frag.dim { opacity: .26; filter: saturate(.3); }
+
+/* --- Progress / chrome --------------------------------------------------- */
+#progress {
+  position: fixed; left: 0; bottom: 0; height: 3px; width: 100%;
+  background: rgba(255,255,255,.07); z-index: 40;
+}
+#progress > i { display: block; height: 100%; width: 0; background: var(--grad-brand); transition: width .35s ease; }
+#slideno {
+  position: fixed; right: 16px; bottom: 13px; z-index: 40;
+  font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: .12em;
+  color: rgba(255,255,255,.34); font-variant-numeric: tabular-nums;
+}
+#hint {
+  position: fixed; left: 16px; bottom: 12px; z-index: 40;
+  font-size: 11.5px; letter-spacing: .08em; color: rgba(255,255,255,.28);
+  transition: opacity .6s ease;
+}
+body.moved #hint { opacity: 0; }
+
+#blackout { position: fixed; inset: 0; background: #000; z-index: 90; display: none; }
+body.blacked #blackout { display: block; }
+
+#help {
+  position: fixed; inset: 0; z-index: 100; display: none;
+  background: rgba(12,9,32,.90); backdrop-filter: blur(6px);
+  place-items: center; color: #fff; font-size: 15px;
+}
+body.helping #help { display: grid; }
+#help .panel { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 30px 38px; max-width: 640px; }
+#help h4 { font-family: var(--display); font-size: 21px; margin-bottom: 16px; }
+#help dl { display: grid; grid-template-columns: 168px 1fr; gap: 9px 18px; }
+#help dt { font-family: var(--mono); font-size: 12.5px; color: var(--teal-bright); }
+#help dd { color: #C3BCEA; font-size: 13.5px; }
+
+/* --- Overview mode (grid of thumbnails) ---------------------------------- */
+body.overview { overflow: auto; }
+body.overview #viewport { position: static; display: block; padding: 22px; }
+body.overview #stage {
+  width: auto; height: auto; transform: none !important;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+body.overview .slide {
+  position: relative; inset: auto; display: flex !important;
+  width: 1280px; height: 720px;
+  transform: scale(.222); transform-origin: top left;
+  margin-right: -996px; margin-bottom: -560px;
+  cursor: pointer; border-radius: 12px; outline: 3px solid transparent;
+}
+body.overview .slide.active { outline-color: var(--teal-bright); }
+body.overview .slide > * { animation: none !important; }
+body.overview .frag { opacity: 1 !important; transform: none !important; filter: none !important; }
+
+/* Speaker notes live in the DOM but never render on the main stage */
+.notes { display: none; }
+
+/* --- SVG defaults --------------------------------------------------------- */
+svg { display: block; overflow: visible; }
+svg text { font-family: var(--sans); }
+.ax-label { font-size: 13px; font-weight: 700; fill: var(--ink-mute); letter-spacing: .04em; }
+.ax-line { stroke: var(--line); stroke-width: 1; }
+.slide.dark .ax-label { fill: #8F86C4; }
+.slide.dark .ax-line { stroke: rgba(255,255,255,.14); }
+.val-label { font-family: var(--display); font-weight: 800; font-variant-numeric: tabular-nums; fill: var(--indigo); }
+.slide.dark .val-label { fill: #fff; }
+
+/* --- Print / PDF export -------------------------------------------------- */
+@page { size: 1280px 720px; margin: 0; }
+@media print {
+  /* Nothing may still be mid-transition when the snapshot is taken. Several
+     reveals are plain CSS transitions rather than d3, and a 0.4s fade is easily
+     longer than the gap before the page is rasterized. */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    transition-delay: 0s !important;
+  }
+  .caret { display: none !important; }
+
+  html, body { overflow: visible; background: #fff; height: auto; }
+  #progress, #slideno, #hint, #help, #blackout { display: none !important; }
+  #viewport { position: static; display: block; padding: 0; }
+  #stage { width: 1280px; height: auto; transform: none !important; display: block; }
+  .slide {
+    position: relative; inset: auto; display: flex !important;
+    width: 1280px; height: 720px; margin: 0; transform: none !important;
+    page-break-after: always; break-after: page; outline: none;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .slide > * { animation: none !important; }
+  .frag { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* ==========================================================================
+   Visualization components
+   ========================================================================== */
+.viz { width: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+.viz-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* --- Tokenizer (slide 04) ------------------------------------------------ */
+.tk { display: flex; flex-direction: column; gap: 24px; width: 100%; height: 100%; justify-content: center; }
+.tk-line {
+  min-height: 104px; display: flex; align-items: center; flex-wrap: wrap;
+  padding: 20px 24px; border-radius: var(--radius);
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.tk-line .plain { font-family: var(--display); font-weight: 600; font-size: 29px; letter-spacing: -.02em; color: var(--indigo); }
+.token-chip.big { font-size: 19px; padding: 7px 11px; margin: 3px; border-radius: 8px; }
+.tk-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.tk-stat { padding: 16px 18px; border-radius: var(--radius-sm); background: var(--card); border: 1px solid var(--line); }
+.tk-stat .cap { font-size: 10.5px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-mute); }
+.tk-stat .v { font-family: var(--display); font-weight: 800; font-size: 31px; letter-spacing: -.03em; color: var(--indigo); margin-top: 7px; font-variant-numeric: tabular-nums; }
+.tk-stat .n { font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; font-weight: 600; }
+.tk-stat.accent { background: var(--grad-soft); border-color: rgba(94,79,233,.22); }
+.tk-stat.accent .v { background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tk-note {
+  padding: 15px 20px; border-radius: var(--radius-sm); font-size: 17px; font-weight: 600; color: var(--ink);
+  background: rgba(47,191,200,.08); border: 1px solid rgba(47,191,200,.26);
+}
+.tk-note b { color: var(--teal-ink); }
+
+/* --- Equation (slide 08) ------------------------------------------------- */
+.eq { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; height: 100%; }
+.eq-term { text-align: center; min-width: 158px; }
+.eq-term .v { font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -.03em; color: #fff; font-variant-numeric: tabular-nums; }
+.eq-term .l { font-size: 12.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: #8F86C4; margin-top: 8px; }
+.eq-op { font-family: var(--display); font-weight: 700; font-size: 27px; color: #6E5CE8; padding-bottom: 22px; }
+.eq-term.result .v { font-size: 60px; background: linear-gradient(120deg,#7BE9EC,#B9A9FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.eq-term.result .l { color: var(--teal-bright); }
+.eq-term.first .v { color: #6FE3E8; }
+
+/* --- Budget table (slide 07) --------------------------------------------- */
+.btable { display: flex; flex-direction: column; gap: 9px; }
+.brow {
+  display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center;
+  padding: 13px 18px; border-radius: var(--radius-sm);
+  background: var(--card); border: 1px solid var(--line);
+}
+.brow .k { font-size: 16.5px; font-weight: 600; color: var(--ink); }
+.brow .v { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--violet); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.brow.hero { background: var(--grad-soft); border-color: rgba(94,79,233,.24); }
+.brow.hero .k { font-weight: 700; }
+.brow.hero .v { font-size: 30px; background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* --- Leverage ratio (slide 21) ------------------------------------------- */
+.lev-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 26px; width: 100%; height: 100%; }
+.lev { display: flex; align-items: center; justify-content: center; gap: 30px; }
+.lev-frac { display: flex; flex-direction: column; align-items: stretch; gap: 11px; }
+.lev-row { display: flex; align-items: flex-start; justify-content: center; gap: 20px; }
+.lev-bar { height: 4px; border-radius: 2px; background: var(--grad-brand); }
+.lev-term { text-align: center; min-width: 158px; }
+.lev-term .v { font-family: var(--display); font-weight: 800; font-size: 37px; letter-spacing: -.03em;
+               color: var(--indigo); font-variant-numeric: tabular-nums; line-height: 1.05; }
+.lev-term .u { font-size: 13.5px; font-weight: 700; color: var(--violet); margin-top: 3px; }
+.lev-term .l { font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+               color: var(--ink-mute); margin-top: 7px; line-height: 1.4; }
+.lev-op { font-family: var(--display); font-weight: 700; font-size: 23px; color: var(--violet); padding-top: 12px; }
+.lev-eq { font-family: var(--display); font-weight: 800; font-size: 38px; color: var(--ink-mute); }
+.lev-result { text-align: center; min-width: 250px; }
+.lev-result .v { font-family: var(--display); font-weight: 800; font-size: 94px; letter-spacing: -.045em;
+                 line-height: 1; font-variant-numeric: tabular-nums;
+                 background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lev-result .l { font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+                 color: var(--violet); margin-top: 10px; }
+.lev-note { width: 100%; padding: 15px 22px; border-radius: 15px; font-size: 16px; font-weight: 600;
+            color: var(--ink-soft); background: rgba(94,79,233,.06); border: 1px solid rgba(94,79,233,.22); }
+.lev-note b { color: var(--violet); font-weight: 800; }
+
+/* --- Tokenizer: question / answer lanes ---------------------------------- */
+.tk-side { display: flex; align-items: center; margin-bottom: -2px; }
+.tk-tag {
+  font-family: var(--display); font-size: 10.5px; font-weight: 800;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--violet);
+  background: var(--grad-soft); border: 1px solid rgba(94,79,233,.2);
+  padding: 4px 11px; border-radius: 999px;
+}
+.tk-tag.out { color: var(--teal-ink); background: rgba(47,191,200,.10); border-color: rgba(47,191,200,.28); }
+.tk { gap: 12px; }
+/* the answer pill needs the same breathing room the question pill gets */
+.tk-line.answer { margin-top: 12px; }
+.tk-line { min-height: 78px; padding: 16px 20px; }
+.tk-line .plain { font-size: 25px; }
+.token-chip.big { font-size: 17px; padding: 6px 10px; }
+.tk-line.answer {
+  min-height: 96px; display: block; align-items: flex-start;
+  font-size: 15px; line-height: 1.5; color: var(--ink-soft); font-weight: 500;
+  border-color: rgba(47,191,200,.28); background: rgba(47,191,200,.045);
+}
+.caret {
+  display: inline-block; width: 8px; height: 16px; margin-left: 2px;
+  background: var(--teal); vertical-align: text-bottom; animation: blink .9s steps(1) infinite;
+}
+@keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+.tk-stat { padding: 13px 16px; }
+.tk-stat .v { font-size: 27px; margin-top: 5px; }
+.tk-note { padding: 13px 18px; font-size: 15px; }
+
+/* --- Compact list inside a card ------------------------------------------ */
+.card ul.mini { list-style: none; margin-top: 9px; display: flex; flex-direction: column; gap: 6px; }
+.card ul.mini li {
+  position: relative; padding-left: 17px; font-size: 14.5px;
+  line-height: 1.35; color: var(--ink-soft); font-weight: 600;
+}
+.card ul.mini li::before {
+  content: ""; position: absolute; left: 0; top: 7px;
+  width: 6px; height: 6px; border-radius: 2px; background: var(--grad-brand);
+}
+
+/* --- Close slide takeaways ----------------------------------------------- */
+ol.takeaways { list-style: none; counter-reset: tk; display: flex; flex-direction: column; gap: 13px; }
+ol.takeaways li {
+  counter-increment: tk; position: relative; padding-left: 40px;
+  font-size: 15px; line-height: 1.45; color: #C3BCEA; font-weight: 500;
+}
+ol.takeaways li b { color: #fff; font-weight: 800; display: block; margin-bottom: 2px; font-size: 15.5px; }
+ol.takeaways li::before {
+  content: counter(tk); position: absolute; left: 0; top: 1px;
+  width: 26px; height: 26px; border-radius: 9px;
+  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.2);
+  display: grid; place-items: center;
+  font-family: var(--display); font-size: 12.5px; font-weight: 800; color: var(--teal-bright);
+}
+
+/* --- Close slide QR, in a live frame -------------------------------------- */
+.qr-block { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+.qr-frame { position: relative; display: grid; place-items: center; }
+
+/* the ring clips the rotating gradient to a rounded square */
+.qr-ring {
+  position: relative;
+  padding: 10px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 34px -6px rgba(89,219,222,.45);
+}
+.qr-ring::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 240%; padding-bottom: 240%;
+  margin: -120% 0 0 -120%;
+  background: conic-gradient(from 0deg,
+    #59DBDE 0deg, #6A57DB 100deg, #B9A9FF 190deg, #35C6D0 280deg, #59DBDE 360deg);
+  animation: qr-spin 9s linear infinite;
+}
+@keyframes qr-spin { to { transform: rotate(360deg); } }
+
+/* white quiet zone stays — scanners need the contrast */
+.qr-card {
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  padding: 12px;
+  line-height: 0;
+}
+.qr-card img { display: block; width: 146px; height: 146px; image-rendering: pixelated; }
+
+/* corner brackets, breathing gently */
+.qr-corner {
+  position: absolute; width: 22px; height: 22px;
+  border: 2.5px solid var(--teal-bright);
+  animation: qr-corner 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.qr-corner.tl { top: -11px;    left: -11px;  border-right: 0; border-bottom: 0; border-radius: 9px 0 0 0; }
+.qr-corner.tr { top: -11px;    right: -11px; border-left: 0;  border-bottom: 0; border-radius: 0 9px 0 0; }
+.qr-corner.bl { bottom: -11px; left: -11px;  border-right: 0; border-top: 0;    border-radius: 0 0 0 9px; }
+.qr-corner.br { bottom: -11px; right: -11px; border-left: 0;  border-top: 0;    border-radius: 0 0 9px 0; }
+@keyframes qr-corner { 0%,100% { opacity: .45; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+
+.qr-cap {
+  position: relative;
+  text-align: center; font-size: 13.5px; line-height: 1.45;
+  color: #C3BCEA; font-weight: 600; max-width: 250px;
+}
+.qr-cap b { display: block; color: #fff; font-weight: 800; margin-bottom: 3px; font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .qr-ring::before, .qr-corner { animation: none; }
+}
+@media print {
+  .qr-ring::before, .qr-corner { animation: none !important; }
+  .qr-corner { opacity: 1 !important; transform: none !important; }
+}
+
+/* --- PDF fidelity ---------------------------------------------------------
+   Chrome leaves a faint rectangle around -webkit-background-clip:text when it
+   rasterizes to PDF. On paper the gradient is decoration, so print solid.
+   SVG gradient fills are unaffected and keep printing correctly.            */
+@media print {
+  /* EVERY selector in this file that uses `background-clip: text` must appear
+     in the list below, or that text exports inside a grey box. Grep for
+     "background-clip" before adding a new one. Current list, in file order:
+       .hl  .slide.dark .hl  .bignum  .slide.dark .bignum  .bignum.alarm
+       .tk-stat.accent .v  .eq-term.result .v  .brow.hero .v  .lev-result .v */
+  .hl,
+  .bignum,
+  .tk-stat.accent .v,
+  .eq-term.result .v,
+  .brow.hero .v,
+  .lev-result .v {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: var(--violet) !important;
+  }
+  .tk-stat.accent .v,
+  .brow.hero .v { color: var(--violet) !important; }
+  .slide.dark .hl,
+  .slide.dark .bignum,
+  .slide.dark .eq-term.result .v,
+  .slide.dark .lev-result .v { color: var(--teal-bright) !important; }
+  .bignum.alarm { color: var(--alarm) !important; }
+}

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reducing AI Operating Costs — NextUp SoCal</title>
+<meta name="description" content="NextUp SoCal virtual event · Fri Aug 21, 2026 · Nick McCarty, Upskilled Consulting">
+<link rel="stylesheet" href="css/deck.css">
+</head>
+<body>
+
+<div id="viewport">
+<div id="stage">
+
+<!-- ═══════════════════════════════════════════════════ 01 · TITLE ═══════ -->
+<section class="slide dark" id="s-title">
+  <div class="viz-bg" data-viz="titlefield"></div>
+  <div class="slide-head" style="padding-top:130px; position:relative; z-index:2;">
+    <span class="kicker">NextUp SoCal · Virtual Event</span>
+    <h1 style="font-family:var(--display);font-weight:800;font-size:82px;line-height:1.0;letter-spacing:-.035em;margin-top:20px;">
+      Reducing<br><span class="hl">AI Operating Costs</span>
+    </h1>
+    <p class="sub" style="font-size:22px;margin-top:22px;max-width:720px;">
+      What the tokens actually cost, why the invoice grows faster than the usage,
+      and the five levers that bring it back down.
+    </p>
+  </div>
+  <div class="slide-body" style="justify-content:flex-end; position:relative; z-index:2;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding-bottom:8px;">
+      <div>
+        <div style="font-family:var(--display);font-weight:700;font-size:21px;color:#fff;">Nick McCarty</div>
+        <div style="font-size:15px;color:#A79FDB;margin-top:4px;font-weight:600;">Upskilled Consulting</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:var(--display);font-weight:800;font-size:19px;color:var(--teal-bright);">Fri Aug 21, 2026 · 12:00 PM PST</div>
+        <div style="font-size:13.5px;color:#8F86C4;margin-top:5px;font-weight:600;letter-spacing:.05em;">Part two of the NextUp SoCal AI series</div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot-bar"></footer>
+  <aside class="notes">
+    <p class="say">"On June 5, Ashika showed you the AI Maturity Ladder and told you to climb it. Today I'm here with the invoice."</p>
+    <p>Frame the hour: <em>this is not an anti-AI talk.</em> It's a "pay the right amount" talk. Everything here assumes you're already adopting.</p>
+    <p>Housekeeping: 60 minutes, Q&amp;A at the end, deck + a one-page checklist go out afterward.</p>
+    <p><strong>Press S</strong> for this window, <strong>F</strong> for fullscreen, <strong>?</strong> for all shortcuts.</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════ 02 · LAST TIME ═══════ -->
+<section class="slide" id="s-lastime">
+  <div class="slide-head">
+    <span class="kicker">Where we left off · June 5</span>
+    <h2>In June we mapped the levels.<br>Today: <span class="hl">what each one costs to run</span>.</h2>
+  </div>
+  <div class="slide-body">
+    <div class="split wide-left">
+      <div class="viz" data-viz="ladder"></div>
+      <div>
+        <ul class="ticks">
+          <li data-frag="1" class="frag up"><strong>Level 1 — Assistant.</strong> One prompt, one answer. Cheap enough that nobody checks.</li>
+          <li data-frag="2" class="frag up"><strong>Level 2 — Collaborator.</strong> The tool knows your context. More reading, more tokens.</li>
+          <li data-frag="3" class="frag up"><strong>Level 3 — Chief of Staff.</strong> It works without you. It reads <em>constantly</em>.</li>
+        </ul>
+        <div class="card frag up" data-frag="4" style="margin-top:22px;background:var(--grad-soft);border-color:rgba(94,79,233,.24);">
+          <div class="cap" style="color:var(--violet);">Where today picks up</div>
+          <p style="color:var(--ink);font-size:17px;font-weight:600;margin-top:7px;">
+            74% of companies plan to deploy agentic AI within two years.
+            So the useful question now is a budgeting one: what does Level 3 cost to run for a year?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot-bar" data-src="Adoption figure from the June 5, 2026 NextUp SoCal session (Deloitte)."></footer>
+  <aside class="notes">
+    <p>Callback slide. Get nods here — most of the room was on the June 5 call.</p>
+    <p><strong>Beat 1–3:</strong> walk the three levels quickly. Say: "each level up, the tool reads more on your behalf. That's the whole cost story in one sentence."</p>
+    <p><strong>Beat 4:</strong> land the question. <em>Do not answer it yet.</em> "Hold that number in your head. We'll have it in twenty minutes."</p>
+    <p>If asked "is agentic worth it?" — say: yes, often. That's exactly why the cost needs to be deliberate instead of accidental.</p>
+  </aside>
+</section>
+
+<!-- ═════════════════════════════════════════════════ 03 · AGENDA ════════ -->
+<section class="slide" id="s-agenda">
+  <div class="slide-head">
+    <span class="kicker">The hour</span>
+    <h2>From &ldquo;it&rsquo;s cheap&rdquo; to <span class="hl">a number you can budget</span>.</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid g3" style="margin-top:8px;">
+      <div class="card frag up" data-frag="1">
+        <div class="cap">01 · The unit</div>
+        <h3 style="margin-top:8px;">What is a token, and what does one actually cost?</h3>
+        <p>Pages, meetings, emails — converted into the thing you're billed for.</p>
+        <p>By the end of it you can price any document your team touches.</p>
+      </div>
+      <div class="card frag up" data-frag="2">
+        <div class="cap">02 · The multiplier</div>
+        <h3 style="margin-top:8px;">Why a fraction of a cent becomes half a million dollars.</h3>
+        <p>Three scenarios, same 600 people, same price list, 47× apart.</p>
+        <p>Same tool, same headcount — three very different invoices.</p>
+      </div>
+      <div class="card frag up" data-frag="3">
+        <div class="cap">03 · The levers</div>
+        <h3 style="margin-top:8px;">Five ways to cut the bill without cutting the capability.</h3>
+        <ul class="mini">
+          <li>Right-size the model</li>
+          <li>Script the plain steps</li>
+          <li>Engineer the context</li>
+          <li>Stop redoing work</li>
+          <li>Run commodity work local</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:16px;">
+      <div class="card frag up" data-frag="4" style="background:var(--grad-soft);">
+        <h3>What you <em style="font-style:normal;color:var(--violet);">don't</em> spend is also a lever</h3>
+        <p>What you keep out of the prompt, and what you keep out of your stack.</p>
+      </div>
+      <div class="card frag up" data-frag="5" style="background:var(--grad-soft);">
+        <h3>And the cost of standing still</h3>
+        <p>The most expensive line item is usually the work you didn't automate — and who in the room never got the tool.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot-bar"></footer>
+  <aside class="notes">
+    <p>Move fast — 60 seconds. This is a map, not content.</p>
+    <p>Set the promise explicitly: <em>"You will leave with a number you can put in a budget, and a short list of things you can ask for without one."</em></p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════════ 04 · WHAT'S A TOKEN ═══ -->
+<section class="slide" id="s-token">
+  <div class="slide-head">
+    <span class="kicker">01 · The unit</span>
+    <h2>You&rsquo;re not billed per prompt.<br>You&rsquo;re billed <span class="hl">per token</span>.</h2>
+  </div>
+  <div class="slide-body">
+    <div class="viz" data-viz="tokenizer" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Token counts approximate; every model tokenizes slightly differently. Prices: GPT-5 standard tier, $1.25 / 1M input, $10 / 1M output."></footer>
+  <aside class="notes">
+    <p><strong>Beat 0:</strong> read the sentence out loud as a human would.</p>
+    <p><strong>Beat 1:</strong> "The model doesn't see a sentence. It sees these." Let the chips land. Point out that <em>common words are one token, unusual ones split</em>.</p>
+    <p><strong>Beat 2:</strong> the price. "That whole request cost two thousandths of a cent. Nobody ever cut a budget over this."</p>
+    <p><strong>Beat 3:</strong> the asymmetry — <em>output is 8× the price of input</em>. Remember that; it flips completely when we get to agents, which read far more than they write.</p>
+    <p>Rule of thumb to give them: <strong>1,000 tokens ≈ 750 words ≈ 4,000 characters.</strong></p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 05 · CONVERSIONS ═════════ -->
+<section class="slide" id="s-convert">
+  <div class="slide-head">
+    <span class="kicker">01 · The unit</span>
+    <h2>Your work, converted into <span class="hl">the billable unit</span>.</h2>
+    <p class="sub">Every artifact your team touches has a token weight.</p>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="convert" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Speech figure assumes 130–160 wpm. Image tokens ≈ (width × height) ÷ 750 for common vision models."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> the 1,000-token block. 750 words, 4,000 characters. "That's about one and a half pages, or a long email."</p>
+    <p><strong>Beat 2:</strong> the artifact ladder appears — note it's a <em>log scale</em>, each gridline is 10×.</p>
+    <p><strong>Beat 3:</strong> the meeting. "An hour of six people talking is ten thousand tokens. That's it. A meeting is a cheap document."</p>
+    <p><strong>Beat 4:</strong> the 100-page report at 70,000 — "seventy times the meeting, and still, as you'll see, sixteen cents."</p>
+    <p>Aside if you have time: images are priced by area, not by content — a screenshot you didn't need to attach is real money at volume.</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 06 · COST PER THING ══════ -->
+<section class="slide" id="s-costtable">
+  <div class="slide-head">
+    <span class="kicker">01 · The unit</span>
+    <h2>Here is what <span class="hl">one of everything</span> costs.</h2>
+    <p class="sub">Read it in, hand a summary back. Common artifacts, priced.</p>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="costtable" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="GPT-5 standard tier ($1.25 / $10 per 1M). Summary assumed at 10% of input. Small-model tier drawn at 1/10 the token price."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> bars grow. Log scale again — say so, or someone will call it out.</p>
+    <p><strong>Beat 2:</strong> the small-model overlay. "Same job, a tenth of the price. Hold that thought — it's lever number one."</p>
+    <p><strong>Beat 3:</strong> the punchline. <em>"Nothing on this chart is expensive. This is the slide that makes everyone relax — and it is exactly why the invoice catches people out later, as they move up the levels."</em></p>
+    <p>Anchor to give them: <strong>a 100-page report costs about a stamp.</strong></p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════ 07 · BUDGET RULES ═════════ -->
+<section class="slide" id="s-budget">
+  <div class="slide-head">
+    <span class="kicker">01 · The unit</span>
+    <h2>For perspective: <span class="hl">what everyday work costs</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="split wide-left" style="align-items:center;">
+      <div class="viz" data-viz="budgettable"></div>
+      <div class="viz" data-viz="dotgrid"></div>
+    </div>
+    <div class="frag up" data-frag="4" style="flex-shrink:0;margin-top:6px;padding:14px 22px;border-radius:16px;background:rgba(47,191,200,.09);border:1px solid rgba(47,191,200,.28);">
+      <span style="font-family:var(--display);font-weight:800;font-size:18px;color:var(--teal-ink);">The unit is cheap. The bill is a volume problem — and volume is a decision we have influence over.</span>
+    </div>
+  </div>
+  <footer class="foot-bar" data-src="Derived from the per-artifact costs on the previous slide: input tokens plus a summary at 10% of input length."></footer>
+  <aside class="notes">
+    <p>These six numbers are the most quotable thing in the deck. Slow down.</p>
+    <p><strong>Beat 1–2:</strong> read the small ones. "An email is free. A meeting is two cents."</p>
+    <p><strong>Beat 3:</strong> the thousand-document dot grid fills. Let it run — the animation is the point.</p>
+    <p><strong>Beat 4:</strong> <em>"A thousand hundred-page reports — more reading than your whole team will do this year — is a hundred and sixty dollars."</em></p>
+    <p>Then set the trap for the next act: "So if the unit is this cheap, how does anyone spend real money on this?"</p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════════ 08 · THE PIVOT ════════ -->
+<section class="slide dark" id="s-pivot">
+  <div class="slide-head" style="padding-top:74px;">
+    <span class="kicker">02 · The multiplier</span>
+    <h2 style="font-size:52px;margin-top:16px;">Nobody's budget breaks on price.<br>It breaks on <span class="hl">volume</span>.</h2>
+  </div>
+  <div class="slide-body">
+    <div class="viz" data-viz="equation" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar"></footer>
+  <aside class="notes">
+    <p>Transition slide. This is the hinge of the whole talk — take the pause.</p>
+    <p><strong>Beat 1–4:</strong> assemble the equation one term at a time. "Cost per task — we just did that, it's tiny. Tasks per day. People. Working days."</p>
+    <p class="say">"Everyone in your organization is looking at the first term. The invoice is made of the other three."</p>
+    <p>Set up the next three slides: "Same company — 600 people, 250 working days — three different ways of using the same tool."</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 09 · SCENARIO 1 ══════════ -->
+<section class="slide" id="s-sc1">
+  <div class="slide-head">
+    <span class="kicker">Scenario 1 of 3 · Level 1</span>
+    <h2>The <span class="hl">assistant</span>.<br>Chat, summarize, draft.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="scenario" data-key="sc1" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output."></footer>
+  <aside class="notes">
+    <p>This is the shape they'll see three times. Teach them to read it here, then it's fast.</p>
+    <p><strong>Beat 1:</strong> 20,000 input tokens a day. "Fifteen thousand words read. That's a heavy user."</p>
+    <p><strong>Beat 2:</strong> 5,000 output. Note output is the <em>smaller</em> number but nearly <em>two-thirds of the cost</em> — the 8× asymmetry showing up.</p>
+    <p><strong>Beat 3:</strong> seven and a half cents a day, per person.</p>
+    <p><strong>Beat 4:</strong> <strong>$11,250 a year for 600 people.</strong> "Eighteen dollars and seventy-five cents per employee per year. Cheaper than the coffee. This is the number people quote when they say AI is cheap."</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 10 · SCENARIO 2 ══════════ -->
+<section class="slide" id="s-sc2">
+  <div class="slide-head">
+    <span class="kicker">Scenario 2 of 3 · Levels 2–3</span>
+    <h2>The <span class="hl">agent</span>.<br>Agents read far more than they write.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="scenario" data-key="sc2" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> 500,000 input tokens a day — <em>25× the assistant</em>. "That's not a bigger document. That's the same documents, read over and over, every turn of the loop." (Flag: we come back to exactly this on the context slide.)</p>
+    <p><strong>Beat 2:</strong> output barely moves — 20,000. The agent isn't writing more; it's <em>reading</em> more.</p>
+    <p><strong>Beat 3:</strong> the cost flips. Input is now the majority of the bill. Everything people learned about "output is expensive" stops applying.</p>
+    <p><strong>Beat 4–5:</strong> <strong>$123,750/year.</strong> Eleven times scenario one, for the same headcount.</p>
+    <p class="say">"Nothing about the price list changed. The tool just started reading on your behalf."</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 11 · SCENARIO 3 ══════════ -->
+<section class="slide" id="s-sc3">
+  <div class="slide-head">
+    <span class="kicker">Scenario 3 of 3 · Past Level 3</span>
+    <h2>Always-on <span class="hl">automation</span>.<br>Agents that never stop watching.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="scenario" data-key="sc3" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output."></footer>
+  <aside class="notes">
+    <p>Multiple autonomous agents, continuously monitoring — inboxes, tickets, inventory, pricing, compliance.</p>
+    <p><strong>Beat 1:</strong> 2 million input tokens per employee per day. "A hundred times the assistant. And notice — nobody typed any of it."</p>
+    <p><strong>Beat 4–5:</strong> <strong>$525,000/year.</strong></p>
+    <p class="say">"This is the number I want in your head when a vendor says 'and it runs continuously in the background.' That sentence has a price."</p>
+    <p>Important honesty beat: this can absolutely be worth it. A half-million in inference that replaces three million in labor is a good trade. The failure mode isn't spending — it's <em>not knowing</em>.</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════════ 12 · THE RAMP ════════ -->
+<section class="slide dark" id="s-ramp">
+  <div class="slide-head">
+    <span class="kicker">02 · The multiplier</span>
+    <h2>Same 600 people. Same 250 days.<br>Same price list. <span class="hl">47× apart.</span></h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="ramp" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Annual inference cost at GPT-5 standard-tier pricing. Linear scale — scenario 1 is drawn to the same scale as the others."></footer>
+  <aside class="notes">
+    <p>The executive money slide. <strong>Say almost nothing while it builds.</strong></p>
+    <p><strong>Beat 1:</strong> scenario one — the sliver. Point at it. "That's eleven thousand dollars. To scale."</p>
+    <p><strong>Beat 2–3:</strong> let two and three land.</p>
+    <p><strong>Beat 4:</strong> per-employee readout: <strong>$18.75 → $206 → $875 per person per year.</strong></p>
+    <p class="say">"Nobody in this picture approved a 47× increase. Every step of it was a reasonable decision made by someone who didn't have this chart."</p>
+    <p>Bridge to act three: "Now — the good news. Almost all of the difference is optional."</p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════════ 13 · THE LEVERS ═══════ -->
+<section class="slide" id="s-levers">
+  <div class="slide-head">
+    <span class="kicker">03 · The levers</span>
+    <h2>Five levers. Same capability,<br><span class="hl">a fraction of the bill</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="waterfall" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Illustrative model. Each cut applies to the running remainder, not the original total. Your mix will differ."></footer>
+  <aside class="notes">
+    <p><strong>Be explicit that this is a model, not a measurement.</strong> Say it before the first bar drops — it buys you credibility for the rest of the section.</p>
+    <p>Each lever gets its own slide next. Here, just name them and let the bar fall:</p>
+    <ul>
+      <li><strong>Right-size the model</strong> — stop paying frontier prices for routine work.</li>
+      <li><strong>Script the deterministic steps</strong> — don't rent judgment you don't need.</li>
+      <li><strong>Engineer the context</strong> — stop re-reading the same page 250 times.</li>
+      <li><strong>Stop redoing work</strong> — save the artifact, not the conversation.</li>
+      <li><strong>Run commodity work locally</strong> — smaller models, your hardware, your data.</li>
+    </ul>
+    <p><strong>Final beat:</strong> $525K → roughly $147K. "Three and a half times cheaper, and I haven't taken a single capability away from anyone."</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════ 14 · LEVER 1 · RIGHT-SIZE ════ -->
+<section class="slide" id="s-rightsize">
+  <div class="slide-head">
+    <span class="kicker">Lever 1 · Right-size the model</span>
+    <h2>We&rsquo;re paying frontier prices<br>for a <span class="hl">1.7% edge</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="rightsize" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Benchmark gap: Stanford HAI, 2025 AI Index Report. Routing math assumes the small tier is ~10× cheaper."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> the gap. Best open-weight models closed from 8% to 1.7% behind the best paid models in a single year.</p>
+    <p><strong>Beat 2:</strong> the routing split. "Of a hundred tasks, how many genuinely need the best model on earth? Be honest."</p>
+    <p><strong>Beat 3:</strong> the arithmetic. Route 80% of tasks to a tier that's 10× cheaper → you pay 28% of what you paid. <em>A 72% cut, on the first day, from a routing rule.</em></p>
+    <p><strong>Beat 4:</strong> the real point — <em>defaulting to the premium model for every task is a tax on habit, not a quality decision.</em></p>
+    <p>Objection to pre-empt: "won't quality drop?" Answer: on the 20% that matters, you still use the best model. That's what routing means. Measure it — pick 50 real tasks, run both, compare.</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 15 · LEVER 2 · SCRIPT ════ -->
+<section class="slide" id="s-script">
+  <div class="slide-head">
+    <span class="kicker">Lever 2 · Script the deterministic steps</span>
+    <h2>Most of what you're automating<br><span class="hl">doesn't need to think</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="script" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Illustrative: $0.50 per agent run, a one-time build of ~$400 in analyst time, $1,200/yr maintenance."></footer>
+  <aside class="notes">
+    <p>This is the least popular lever and the most valuable one. Lead with the honesty: <em>where the work needs judgment or language, the model wins and you should pay for it.</em></p>
+    <p><strong>Beat 1–2:</strong> the two lines. A model call has <em>no economy of scale</em> — every run costs the same as the first. A script has almost nothing but economies of scale.</p>
+    <p><strong>Beat 3:</strong> the crossover — around 3,200 runs a year. "That's thirteen runs a working day. One recurring report."</p>
+    <p><strong>Beat 4:</strong> at 150,000 runs: <strong>$75,000 vs $1,600.</strong></p>
+    <p class="say">"If the task has the same shape every time — pull the file, reformat, check the threshold, send it — you are renting a Ph.D. to read a thermometer."</p>
+    <p>Practical test to give them: <em>if you can write down the rule, you don't need a model to follow it.</em></p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════ 16 · LEVER 3 · CONTEXT ════ -->
+<section class="slide" id="s-context">
+  <div class="slide-head">
+    <span class="kicker">Lever 3 · Engineer the context</span>
+    <h2>Your agent is <span class="hl">re-reading the same page</span><br>all day long.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="context" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Illustrative: a 20-turn loop adding ~2,000 tokens per turn. Engineered = rolling window plus a running summary."></footer>
+  <aside class="notes">
+    <p>The payoff for the flag you planted on scenario 2. This is the most technical slide — keep it to the shape, not the mechanism.</p>
+    <p><strong>Beat 1:</strong> the naive loop. Turn 1 sends 2,000 tokens. Turn 2 re-sends turn 1 <em>plus</em> the new part. Turn 20 re-sends everything.</p>
+    <p><strong>Beat 2:</strong> the curve. <em>It's not linear — it's quadratic.</em> Twenty turns of a small conversation is 420,000 tokens.</p>
+    <p><strong>Beat 3:</strong> the engineered line — rolling window plus a summary. 120,000 tokens for the same work. <strong>3.5× less.</strong></p>
+    <p><strong>Beat 4:</strong> and prompt caching cuts the repeated prefix further on most platforms — ask your vendor what their cache discount is; it's usually the single easiest call you'll make.</p>
+    <p class="say">"Your agent's context window is a shopping cart nobody empties."</p>
+  </aside>
+</section>
+
+<!-- ═════════════════════════════════════════ 17 · LEVER 4 · ARTIFACTS ═══ -->
+<section class="slide" id="s-artifacts">
+  <div class="slide-head">
+    <span class="kicker">Lever 4 · Stop redoing work</span>
+    <h2>The chat window is a <span class="hl">shredder</span><br>with a very good memory of nothing.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="artifacts" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Rework share shown at 30% — an assumption. Measure yours before budgeting against it."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> the sessions grid. Every dot is somebody solving something in a chat window.</p>
+    <p><strong>Beat 2:</strong> the red dots — work that was <em>already done</em>, by someone else, last month, in a session nobody kept. "Chat sessions are great for one-off tasks. But the output is almost never saved as an artifact."</p>
+    <p><strong>Beat 3:</strong> the cost. At 30% rework on a $525K bill, that's <strong>$157,500 a year to re-answer answered questions</strong> — and that's before you count the salary time.</p>
+    <p>The fix is unglamorous and free: <em>put the prompts and the outputs in version control.</em> A prompt someone tuned for four hours is an asset. Right now it lives in one person's scrollback.</p>
+    <p>Tie to June 5: this is what turns a Level 1 individual habit into a Level 2 team capability.</p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════ 18 · LEVER 5 · LOCAL ══════ -->
+<section class="slide" id="s-local">
+  <div class="slide-head">
+    <span class="kicker">Lever 5 · Run commodity work locally</span>
+    <h2>Smaller models, your hardware,<br><span class="hl">nothing leaves the building</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="local" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Memory = parameters × bytes per parameter (FP16 2, INT8 1, INT4 0.5). Break-even assumes premium-tier volume; it does not hold at commodity-tier pricing."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> quantization in one sentence — <em>"you store each number in the model with less precision. The model gets smaller and faster; on routine work you can barely tell."</em> An 8-billion-parameter model goes from 16 GB to 4 GB.</p>
+    <p><strong>Beat 2:</strong> what that unlocks — 4 GB runs on a laptop. Not a data center. A laptop.</p>
+    <p><strong>Beat 3:</strong> break-even. Fixed hardware cost versus a monthly API line that never stops.</p>
+    <p><strong>Beat 4:</strong> and the part that isn't about money at all — <em>no data leaves the system.</em> No API call, no third-party retention question, no vendor breach that includes your documents.</p>
+    <p>For this audience: this is the answer to "legal won't let us put customer data in ChatGPT." It's also, quietly, the cheapest answer.</p>
+  </aside>
+</section>
+
+<!-- ══════════════════════════════════════════ 19 · THE PROMPT ═══════════ -->
+<section class="slide" id="s-prompt">
+  <div class="slide-head">
+    <span class="kicker">04 · What you don't spend</span>
+    <h2>What you <span class="hl">don't</span> put in the prompt<br>is a line on the budget too.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="promptfilter" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Categories shown are the four that show up most often in enterprise prompt audits."></footer>
+  <aside class="notes">
+    <p><strong>Beat 1–2:</strong> the flow — everything your team pastes in goes somewhere. Most of it is fine. Four categories are not.</p>
+    <p><strong>Beat 3:</strong> credentials, PII, client IP, internal financials. Each one gets pasted by someone who is trying to be <em>helpful and fast</em>. Nobody in this picture is careless.</p>
+    <p><strong>Beat 4:</strong> the asymmetry. <em>It costs nothing to strip it. It costs a great deal to explain it.</em></p>
+    <p>Practical, do-it-this-week version: one page, four bullets, "never paste these." Plus a shared, sanitized prompt template for the two or three workflows everybody actually runs.</p>
+    <p>Note the second-order cost: fewer tokens in the prompt is also literally a smaller bill. Hygiene and thrift point the same direction here.</p>
+  </aside>
+</section>
+
+
+
+
+
+<!-- ═══════════════════════════════════════ 21 · COST OF NOT USING ═══════ -->
+<section class="slide" id="s-notusing">
+  <div class="slide-head">
+    <span class="kicker">06 · Who gets the lever</span>
+    <h2>The most expensive line item<br>is the one that <span class="hl">isn't on the invoice</span>.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="notusing" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="Pew Research Center, 5,119 U.S. adults, surveyed Feb 17–23 2026. Corroborated by Lean In’s 2026 workplace survey (via Forbes)."></footer>
+  <aside class="notes">
+    <p>Pivot here. Everything so far has been &ldquo;spend less.&rdquo; This is &ldquo;don&rsquo;t mistake spending less for winning.&rdquo;</p>
+    <p><strong>Beat 1:</strong> the compounding gap. An hour a day, per person, over a year. The teams that automate pull away from the ones that don't, and the distance grows.</p>
+    <p><strong>Beat 2 — deliver this carefully, it is the most important slide in the deck for this room.</strong> The old story was that women were not using AI. <em>That gap has essentially closed:</em> 50% of men and 47% of women have used a chatbot. Two years ago that gap was eleven points.</p>
+    <p>What has <em>not</em> closed is intensity. Daily use, 27% against 20%. Using it for work, 40% against 35%. Believing it makes you more productive, 35% against 25%. <em>The door is open. The gap is in how far through it people walk.</em></p>
+    <p>If the room is right for it, add the Lean In finding: only 30% of women say their manager encouraged them to use AI, against 37% of men — and men were <em>27% more likely to be praised</em> for using it. Same behaviour, different credit. That is worth naming out loud in a room like this one.</p>
+    <p><strong>Beat 3:</strong> the tie-back to June 5. The line on screen is Ashika&rsquo;s closing slide quoted in full — read it as hers, then add your half.</p>
+    <p class="say">"That was Ashika&rsquo;s last slide in June. Multiplying your output is the whole game. My one addition: multiply it cheaply, and nobody gets to take it away from you when the invoice lands."</p>
+    <p><strong>Sources, if challenged:</strong> Pew Research Center, 5,119 U.S. adults, fielded Feb 17–23 2026. The workplace and recognition figures are Lean In’s 2026 survey, reported in Forbes. Both are on the slide footnote.</p>
+  </aside>
+</section>
+
+<!-- ════════════════════════ 21 · RE-SKILLING ═══════ -->
+<section class="slide" id="s-reskill">
+  <div class="slide-head">
+    <span class="kicker">06 · Who gets the lever</span>
+    <h2>The appetite is already there.<br>The <span class="hl">training</span> is the missing line item.</h2>
+  </div>
+  <div class="slide-body tight">
+    <div class="viz" data-viz="reskill" style="flex:1;"></div>
+  </div>
+  <footer class="foot-bar" data-src="63%: Skillsoft Women in Tech Report. 46%: BCG, surveying C-suite expectations for reskilling over three years."></footer>
+  <aside class="notes">
+    <p>This is the constructive answer to the slide before it. That one showed a gap in <em>intensity</em>. This one shows what actually closes it — and it is not enthusiasm, because the enthusiasm is already there.</p>
+    <p><strong>Beat 1 — the demand.</strong> AI is the <em>number one</em> topic women say they want to learn about. And 63% report a lack of skills and access to training on the job. Say it plainly: <em>"the constraint is not interest. It is access."</em></p>
+    <p><strong>Beat 2 — the scale.</strong> C-suite executives expect, on average, that <strong>46% of their workforce needs reskilling within three years.</strong> Nearly half. That is not an HR programme, that is a budget line — and most of the rooms I sit in have not costed it.</p>
+    <p><strong>Beat 3 — the tie-back.</strong> Every lever in this talk needs somebody who knows to pull it. Routing, context, scripting — none of it happens because you bought a tool. It happens because someone was taught what to look for.</p>
+    <p class="say">"You are going to spend money on AI this year either way. The cheapest line on the whole page is teaching the people you already employ what these levers are."</p>
+    <p>For this room specifically: if 46% of the workforce needs reskilling and women already report less access to training, then the reskilling budget is where the adoption gap either closes or gets locked in. That is a decision someone in this audience will personally make.</p>
+  </aside>
+</section>
+
+<!-- ═══════════════════════════════════════════ 22 · ACTION PLAN ═════════ -->
+<section class="slide" id="s-action">
+  <div class="slide-head">
+    <span class="kicker">Where to start</span>
+    <h2>Four moves you can make <span class="hl">without a budget request</span>.</h2>
+  </div>
+  <div class="slide-body">
+    <div class="grid g2" style="margin-top:6px;">
+      <div class="card frag up" data-frag="1">
+        <div class="cap">01 · Meter it</div>
+        <h3 style="margin-top:8px;">Turn on per-team usage reporting.</h3>
+        <p>You cannot cut what you cannot see. Ask for cost per team, per workflow, per month — this week. Most platforms already have it switched off by default.</p>
+      </div>
+      <div class="card frag up" data-frag="2">
+        <div class="cap">02 · Route it</div>
+        <h3 style="margin-top:8px;">Name your three biggest use cases. Demote two.</h3>
+        <p>Run the routine two on the cheaper tier for two weeks and compare the output side by side. If nobody can tell the difference, you have just found most of your savings.</p>
+      </div>
+      <div class="card frag up" data-frag="3">
+        <div class="cap">03 · Automate one thing properly</div>
+        <h3 style="margin-top:8px;">Pick the task that runs the same way every week.</h3>
+        <p>The Friday report nobody enjoys building. Ask for it to be automated once, and for the recipe to live somewhere the team can find it &mdash; not in one person&rsquo;s inbox.</p>
+      </div>
+      <div class="card frag up" data-frag="4">
+        <div class="cap">04 · Budget per outcome</div>
+        <h3 style="margin-top:8px;">Set a price per <em style="font-style:normal;color:var(--violet);">thing</em>, not per month.</h3>
+        <p>Dollars per report, per ticket, per meeting summarized. A monthly cap tells you when you're in trouble; a unit cost tells you whether it was worth it.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot-bar"></footer>
+  <aside class="notes">
+    <p>Close hard on #1 and #4 — those are the two an executive can order without a technical conversation.</p>
+    <p>If you only get one sentence: <em>"Ask for cost per outcome. The moment someone has to produce that number, half of this fixes itself."</em></p>
+    <p>Offer the one-pager: "Everything on this slide is in the checklist that goes out with the deck."</p>
+  </aside>
+</section>
+
+<!-- ═════════════════════════════════════════════════ 22 · CLOSE ═════════ -->
+<section class="slide dark" id="s-close">
+  <div class="viz-bg" data-viz="titlefield"></div>
+  <div class="slide-head" style="padding-top:64px;position:relative;z-index:2;">
+    <span class="kicker">Wrapping up</span>
+    <h2 style="font-size:46px;margin-top:14px;">The takeaways worth <span class="hl">keeping</span>.</h2>
+  </div>
+  <div class="slide-body" style="position:relative;z-index:2;padding-top:14px;">
+    <div class="split wide-left" style="align-items:flex-start;gap:36px;">
+
+      <div class="card frag up" data-frag="1" style="background:rgba(20,15,52,.80);backdrop-filter:blur(4px);border-color:rgba(255,255,255,.16);padding:24px 26px;">
+        <ol class="takeaways">
+          <li><b>The unit is cheap. The volume is the bill.</b>
+              A hundred-page report costs about a stamp; nothing on that chart will ever break a budget.</li>
+          <li><b>Agents read far more than they write.</b>
+              Same 600 people, same price list: $11K, $124K or $525K a year depending only on how the tool is used.</li>
+          <li><b>Roughly three-quarters of that is decision-driven, not a set price.</b>
+              Routing, context and scripting get you most of the way back &mdash; without removing capabilities.</li>
+          <li><b>Ask for cost per outcome, not cost per month.</b>
+              The moment someone has to produce that number, half of this fixes itself.</li>
+        </ol>
+        <div class="frag scale" data-frag="2" style="margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);">
+          <span class="hl" style="font-family:var(--display);font-weight:800;font-size:38px;letter-spacing:-.03em;">Questions?</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div>
+          <div style="font-family:var(--display);font-weight:800;font-size:26px;">Nick McCarty</div>
+          <div style="font-size:15px;color:#A79FDB;margin-top:5px;font-weight:600;">Upskilled Consulting</div>
+        </div>
+        <div class="qr-block">
+          <div class="qr-frame">
+            <div class="qr-ring">
+              <div class="qr-card">
+                <img src="assets/qr-code.png" alt="Scan for the cost checklist, the slides, and contact details">
+              </div>
+            </div>
+            <i class="qr-corner tl"></i><i class="qr-corner tr"></i>
+            <i class="qr-corner bl"></i><i class="qr-corner br"></i>
+          </div>
+          <div class="qr-cap">
+            <b>Scan for the one-page cost checklist</b>
+            the slides, and how to reach me.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="foot-bar"></footer>
+  <aside class="notes">
+    <p><strong>Beat 1:</strong> the four takeaways. Read them; don&rsquo;t elaborate. They are the deck compressed.</p>
+    <p>If you only get one sentence out: <em>&ldquo;Ask for cost per outcome. The moment someone has to produce that number, half of this fixes itself.&rdquo;</em></p>
+    <p><strong>Beat 2:</strong> Questions. Hold this slide for the whole Q&amp;A &mdash; the takeaways stay on screen, which keeps questions anchored to something concrete.</p>
+    <p><strong>Likely questions and short answers:</strong></p>
+    <ul>
+      <li><em>&ldquo;Which model should we use?&rdquo;</em> &mdash; Wrong first question. Which <em>tasks</em>, and which of them are routine? Route after that.</li>
+      <li><em>&ldquo;Is open source safe for us?&rdquo;</em> &mdash; For commodity work on your own hardware it is often the <em>safer</em> option, because nothing leaves.</li>
+      <li><em>&ldquo;How do we start metering?&rdquo;</em> &mdash; Admin console, usage export by API key, one key per team. An afternoon of work.</li>
+      <li><em>&ldquo;What if our vendor won&rsquo;t break out cost?&rdquo;</em> &mdash; That is the answer to the question.</li>
+    </ul>
+    <p><strong>Before Aug 21:</strong> scan the QR yourself from a phone that is not signed in to anything, and confirm it lands where you expect. It is live on this slide now, so a wrong link is a wrong link in front of the room.</p>
+  </aside>
+</section>
+
+</div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<div id="progress"><i></i></div>
+<div id="slideno">01 / 23</div>
+<div id="hint">← → or space to advance · S speaker view · F fullscreen · ? help</div>
+<div id="blackout"></div>
+
+<div id="help">
+  <div class="panel">
+    <h4>Presenter controls</h4>
+    <dl>
+      <dt>→ · space · click</dt><dd>Next build / next slide</dd>
+      <dt>← · right-click</dt><dd>Previous build / previous slide</dd>
+      <dt>↑ ↓</dt><dd>Skip a whole slide (past its builds)</dd>
+      <dt>1–23 then pause</dt><dd>Jump straight to a slide number</dd>
+      <dt>S</dt><dd>Open the speaker-notes window</dd>
+      <dt>O · Esc</dt><dd>Overview grid — click any slide to jump</dd>
+      <dt>F</dt><dd>Fullscreen</dd>
+      <dt>B · .</dt><dd>Black the screen (for a question or a demo)</dd>
+      <dt>R</dt><dd>Reset the talk timer</dd>
+      <dt>Ctrl + P</dt><dd>Print / export a fully-built PDF</dd>
+      <dt>?</dt><dd>Close this</dd>
+    </dl>
+  </div>
+</div>
+
+<script src="vendor/d3.v7.min.js"></script>
+<script src="js/deck.js"></script>
+<script src="js/slides.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reducing AI Operating Costs — slides for reading</title>
+<meta name="description" content="The full deck, laid out to read on a phone. NextUp SoCal, Aug 21 2026.">
+<meta name="theme-color" content="#1A1440">
+<link rel="stylesheet" href="vendor/fonts.css">
+<style>
+:root{--indigo:#2E236F;--violet:#5B3FD6;--teal:#2FBFC8;--teal-bright:#59DBDE;--teal-ink:#0E6A72;
+--ink:#1A2138;--ink-soft:#4E5770;--ink-mute:#8A93AB;--line:rgba(46,35,111,.13);--paper:#FAFBFE;--card:#fff;
+--grad-brand:linear-gradient(125deg,#4B3BB0 0%,#6A57DB 45%,#35C6D0 100%);
+--grad-dark:linear-gradient(155deg,#2C2168 0%,#201849 55%,#17123A 100%);
+--sans:'Manrope','Segoe UI',system-ui,sans-serif;--display:'Sora','Segoe UI',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header.top{background:var(--grad-dark);color:#fff;padding:26px 0 22px;position:relative}
+header.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--grad-brand)}
+.kick{font-family:var(--display);font-size:10.5px;font-weight:800;letter-spacing:.2em;
+text-transform:uppercase;color:var(--teal-bright)}
+header.top h1{font-family:var(--display);font-weight:800;font-size:clamp(24px,6.4vw,34px);
+line-height:1.08;letter-spacing:-.03em;margin-top:10px}
+header.top p{color:#C3BCEA;font-size:14.5px;margin-top:10px}
+.hint{margin-top:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.17);
+border-radius:12px;padding:10px 13px;font-size:13px;color:#fff;font-weight:600}
+.hint b{color:var(--teal-bright)}
+.slide{padding:26px 0;border-top:1px solid var(--line)}
+.slide:first-of-type{border-top:none}
+.num{font-family:var(--display);font-size:10.5px;font-weight:800;letter-spacing:.16em;
+text-transform:uppercase;color:var(--violet)}
+.slide h2{font-family:var(--display);font-weight:800;font-size:clamp(19px,4.9vw,25px);
+line-height:1.2;letter-spacing:-.022em;color:var(--indigo);margin-top:7px}
+.slide .sub{font-size:15px;color:var(--ink-soft);margin-top:8px}
+.shot{margin-top:14px;position:relative;display:block;width:100%;border:1px solid var(--line);
+border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 26px -16px rgba(34,27,84,.4);
+cursor:zoom-in;-webkit-tap-highlight-color:transparent}
+.shot img{display:block;width:100%;height:auto}
+.shot .tapz{position:absolute;right:9px;bottom:9px;background:rgba(20,15,52,.82);color:#fff;
+font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+padding:5px 10px;border-radius:999px}
+.src{font-size:12px;color:var(--ink-mute);margin-top:9px;line-height:1.45}
+.jump{position:sticky;top:0;z-index:5;background:rgba(250,251,254,.94);backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);padding:9px 0}
+.jump .wrap{display:flex;gap:7px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;text-decoration:none;font-family:var(--display);font-size:11.5px;font-weight:800;
+padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--violet)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(10,7,26,.96);display:none;
+align-items:center;justify-content:center;padding:12px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+#lb .close{position:absolute;top:14px;right:16px;color:#fff;font-size:26px;font-weight:800;
+background:none;border:none;line-height:1;padding:6px 10px;cursor:pointer}
+#lb .rot{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#8F86C4;
+font-size:12.5px;font-weight:700}
+footer{background:var(--grad-dark);color:#fff;padding:26px 0;margin-top:10px}
+footer a{color:var(--teal-bright)}
+footer .t{font-family:var(--display);font-weight:800;font-size:16px}
+footer .d{font-size:13.5px;color:#A79FDB;margin-top:5px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kick">NextUp SoCal &middot; Aug 21, 2026</div>
+    <h1>Reducing AI Operating Costs</h1>
+    <p>The full deck, laid out to read on a phone. Nick McCarty, Upskilled Consulting.</p>
+    <div class="hint"><b>Tap any slide</b> to open it full screen, then pinch to zoom.
+      Turning your phone sideways helps on the charts.</div>
+  </div>
+</header>
+
+<nav class="jump"><div class="wrap"><a href="#s1">01</a><a href="#s2">02</a><a href="#s3">03</a><a href="#s4">04</a><a href="#s5">05</a><a href="#s6">06</a><a href="#s7">07</a><a href="#s8">08</a><a href="#s9">09</a><a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a><a href="#s15">15</a><a href="#s16">16</a><a href="#s17">17</a><a href="#s18">18</a><a href="#s19">19</a><a href="#s20">20</a><a href="#s21">21</a><a href="#s22">22</a><a href="#s23">23</a></div></nav>
+
+<main class="wrap">
+    <article class="slide" id="s1">
+      <div class="num">01 &middot; NextUp SoCal · Virtual Event</div>
+      <h2>Reducing AI Operating Costs</h2>
+      <p class="sub">What the tokens actually cost, why the invoice grows faster than the usage, and the five levers that bring it back down.</p>
+      <a class="shot" href="assets/slides/01.jpg" data-full="assets/slides/01.jpg" data-alt="Reducing AI Operating Costs">
+        <img src="assets/slides/01.jpg" loading="lazy" width="1280" height="720" alt="Slide 1: Reducing AI Operating Costs">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      
+    </article>
+    <article class="slide" id="s2">
+      <div class="num">02 &middot; Where we left off · June 5</div>
+      <h2>In June we mapped the levels. Today: what each one costs to run.</h2>
+      
+      <a class="shot" href="assets/slides/02.jpg" data-full="assets/slides/02.jpg" data-alt="In June we mapped the levels. Today: what each one costs to run.">
+        <img src="assets/slides/02.jpg" loading="lazy" width="1280" height="720" alt="Slide 2: In June we mapped the levels. Today: what each one costs to run.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Adoption figure from the June 5, 2026 NextUp SoCal session (Deloitte).</p>
+    </article>
+    <article class="slide" id="s3">
+      <div class="num">03 &middot; The hour</div>
+      <h2>From “it’s cheap” to a number you can budget.</h2>
+      
+      <a class="shot" href="assets/slides/03.jpg" data-full="assets/slides/03.jpg" data-alt="From “it’s cheap” to a number you can budget.">
+        <img src="assets/slides/03.jpg" loading="lazy" width="1280" height="720" alt="Slide 3: From “it’s cheap” to a number you can budget.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      
+    </article>
+    <article class="slide" id="s4">
+      <div class="num">04 &middot; 01 · The unit</div>
+      <h2>You’re not billed per prompt. You’re billed per token.</h2>
+      
+      <a class="shot" href="assets/slides/04.jpg" data-full="assets/slides/04.jpg" data-alt="You’re not billed per prompt. You’re billed per token.">
+        <img src="assets/slides/04.jpg" loading="lazy" width="1280" height="720" alt="Slide 4: You’re not billed per prompt. You’re billed per token.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Token counts approximate; every model tokenizes slightly differently. Prices: GPT-5 standard tier, $1.25 / 1M input, $10 / 1M output.</p>
+    </article>
+    <article class="slide" id="s5">
+      <div class="num">05 &middot; 01 · The unit</div>
+      <h2>Your work, converted into the billable unit.</h2>
+      <p class="sub">Every artifact your team touches has a token weight.</p>
+      <a class="shot" href="assets/slides/05.jpg" data-full="assets/slides/05.jpg" data-alt="Your work, converted into the billable unit.">
+        <img src="assets/slides/05.jpg" loading="lazy" width="1280" height="720" alt="Slide 5: Your work, converted into the billable unit.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Speech figure assumes 130–160 wpm. Image tokens ≈ (width × height) ÷ 750 for common vision models.</p>
+    </article>
+    <article class="slide" id="s6">
+      <div class="num">06 &middot; 01 · The unit</div>
+      <h2>Here is what one of everything costs.</h2>
+      <p class="sub">Read it in, hand a summary back. Common artifacts, priced.</p>
+      <a class="shot" href="assets/slides/06.jpg" data-full="assets/slides/06.jpg" data-alt="Here is what one of everything costs.">
+        <img src="assets/slides/06.jpg" loading="lazy" width="1280" height="720" alt="Slide 6: Here is what one of everything costs.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">GPT-5 standard tier ($1.25 / $10 per 1M). Summary assumed at 10% of input. Small-model tier drawn at 1/10 the token price.</p>
+    </article>
+    <article class="slide" id="s7">
+      <div class="num">07 &middot; 01 · The unit</div>
+      <h2>For perspective: what everyday work costs.</h2>
+      
+      <a class="shot" href="assets/slides/07.jpg" data-full="assets/slides/07.jpg" data-alt="For perspective: what everyday work costs.">
+        <img src="assets/slides/07.jpg" loading="lazy" width="1280" height="720" alt="Slide 7: For perspective: what everyday work costs.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Derived from the per-artifact costs on the previous slide: input tokens plus a summary at 10% of input length.</p>
+    </article>
+    <article class="slide" id="s8">
+      <div class="num">08 &middot; 02 · The multiplier</div>
+      <h2>Nobody&#x27;s budget breaks on price. It breaks on volume.</h2>
+      
+      <a class="shot" href="assets/slides/08.jpg" data-full="assets/slides/08.jpg" data-alt="Nobody&#x27;s budget breaks on price. It breaks on volume.">
+        <img src="assets/slides/08.jpg" loading="lazy" width="1280" height="720" alt="Slide 8: Nobody&#x27;s budget breaks on price. It breaks on volume.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      
+    </article>
+    <article class="slide" id="s9">
+      <div class="num">09 &middot; Scenario 1 of 3 · Level 1</div>
+      <h2>The assistant. Chat, summarize, draft.</h2>
+      
+      <a class="shot" href="assets/slides/09.jpg" data-full="assets/slides/09.jpg" data-alt="The assistant. Chat, summarize, draft.">
+        <img src="assets/slides/09.jpg" loading="lazy" width="1280" height="720" alt="Slide 9: The assistant. Chat, summarize, draft.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output.</p>
+    </article>
+    <article class="slide" id="s10">
+      <div class="num">10 &middot; Scenario 2 of 3 · Levels 2–3</div>
+      <h2>The agent. Agents read far more than they write.</h2>
+      
+      <a class="shot" href="assets/slides/10.jpg" data-full="assets/slides/10.jpg" data-alt="The agent. Agents read far more than they write.">
+        <img src="assets/slides/10.jpg" loading="lazy" width="1280" height="720" alt="Slide 10: The agent. Agents read far more than they write.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output.</p>
+    </article>
+    <article class="slide" id="s11">
+      <div class="num">11 &middot; Scenario 3 of 3 · Past Level 3</div>
+      <h2>Always-on automation. Agents that never stop watching.</h2>
+      
+      <a class="shot" href="assets/slides/11.jpg" data-full="assets/slides/11.jpg" data-alt="Always-on automation. Agents that never stop watching.">
+        <img src="assets/slides/11.jpg" loading="lazy" width="1280" height="720" alt="Slide 11: Always-on automation. Agents that never stop watching.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">600 employees × 250 working days. GPT-5 standard tier: $1.25 / 1M input, $10 / 1M output.</p>
+    </article>
+    <article class="slide" id="s12">
+      <div class="num">12 &middot; 02 · The multiplier</div>
+      <h2>Same 600 people. Same 250 days. Same price list. 47× apart.</h2>
+      
+      <a class="shot" href="assets/slides/12.jpg" data-full="assets/slides/12.jpg" data-alt="Same 600 people. Same 250 days. Same price list. 47× apart.">
+        <img src="assets/slides/12.jpg" loading="lazy" width="1280" height="720" alt="Slide 12: Same 600 people. Same 250 days. Same price list. 47× apart.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Annual inference cost at GPT-5 standard-tier pricing. Linear scale — scenario 1 is drawn to the same scale as the others.</p>
+    </article>
+    <article class="slide" id="s13">
+      <div class="num">13 &middot; 03 · The levers</div>
+      <h2>Five levers. Same capability, a fraction of the bill.</h2>
+      
+      <a class="shot" href="assets/slides/13.jpg" data-full="assets/slides/13.jpg" data-alt="Five levers. Same capability, a fraction of the bill.">
+        <img src="assets/slides/13.jpg" loading="lazy" width="1280" height="720" alt="Slide 13: Five levers. Same capability, a fraction of the bill.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Illustrative model. Each cut applies to the running remainder, not the original total. Your mix will differ.</p>
+    </article>
+    <article class="slide" id="s14">
+      <div class="num">14 &middot; Lever 1 · Right-size the model</div>
+      <h2>We’re paying frontier prices for a 1.7% edge.</h2>
+      
+      <a class="shot" href="assets/slides/14.jpg" data-full="assets/slides/14.jpg" data-alt="We’re paying frontier prices for a 1.7% edge.">
+        <img src="assets/slides/14.jpg" loading="lazy" width="1280" height="720" alt="Slide 14: We’re paying frontier prices for a 1.7% edge.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Benchmark gap: Stanford HAI, 2025 AI Index Report. Routing math assumes the small tier is ~10× cheaper.</p>
+    </article>
+    <article class="slide" id="s15">
+      <div class="num">15 &middot; Lever 2 · Script the deterministic steps</div>
+      <h2>Most of what you&#x27;re automating doesn&#x27;t need to think.</h2>
+      
+      <a class="shot" href="assets/slides/15.jpg" data-full="assets/slides/15.jpg" data-alt="Most of what you&#x27;re automating doesn&#x27;t need to think.">
+        <img src="assets/slides/15.jpg" loading="lazy" width="1280" height="720" alt="Slide 15: Most of what you&#x27;re automating doesn&#x27;t need to think.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Illustrative: $0.50 per agent run, a one-time build of ~$400 in analyst time, $1,200/yr maintenance.</p>
+    </article>
+    <article class="slide" id="s16">
+      <div class="num">16 &middot; Lever 3 · Engineer the context</div>
+      <h2>Your agent is re-reading the same page all day long.</h2>
+      
+      <a class="shot" href="assets/slides/16.jpg" data-full="assets/slides/16.jpg" data-alt="Your agent is re-reading the same page all day long.">
+        <img src="assets/slides/16.jpg" loading="lazy" width="1280" height="720" alt="Slide 16: Your agent is re-reading the same page all day long.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Illustrative: a 20-turn loop adding ~2,000 tokens per turn. Engineered = rolling window plus a running summary.</p>
+    </article>
+    <article class="slide" id="s17">
+      <div class="num">17 &middot; Lever 4 · Stop redoing work</div>
+      <h2>The chat window is a shredder with a very good memory of nothing.</h2>
+      
+      <a class="shot" href="assets/slides/17.jpg" data-full="assets/slides/17.jpg" data-alt="The chat window is a shredder with a very good memory of nothing.">
+        <img src="assets/slides/17.jpg" loading="lazy" width="1280" height="720" alt="Slide 17: The chat window is a shredder with a very good memory of nothing.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Rework share shown at 30% — an assumption. Measure yours before budgeting against it.</p>
+    </article>
+    <article class="slide" id="s18">
+      <div class="num">18 &middot; Lever 5 · Run commodity work locally</div>
+      <h2>Smaller models, your hardware, nothing leaves the building.</h2>
+      
+      <a class="shot" href="assets/slides/18.jpg" data-full="assets/slides/18.jpg" data-alt="Smaller models, your hardware, nothing leaves the building.">
+        <img src="assets/slides/18.jpg" loading="lazy" width="1280" height="720" alt="Slide 18: Smaller models, your hardware, nothing leaves the building.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Memory = parameters × bytes per parameter (FP16 2, INT8 1, INT4 0.5). Break-even assumes premium-tier volume; it does not hold at commodity-tier pricing.</p>
+    </article>
+    <article class="slide" id="s19">
+      <div class="num">19 &middot; 04 · What you don&#x27;t spend</div>
+      <h2>What you don&#x27;t put in the prompt is a line on the budget too.</h2>
+      
+      <a class="shot" href="assets/slides/19.jpg" data-full="assets/slides/19.jpg" data-alt="What you don&#x27;t put in the prompt is a line on the budget too.">
+        <img src="assets/slides/19.jpg" loading="lazy" width="1280" height="720" alt="Slide 19: What you don&#x27;t put in the prompt is a line on the budget too.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Categories shown are the four that show up most often in enterprise prompt audits.</p>
+    </article>
+    <article class="slide" id="s20">
+      <div class="num">20 &middot; 06 · Who gets the lever</div>
+      <h2>The most expensive line item is the one that isn&#x27;t on the invoice.</h2>
+      
+      <a class="shot" href="assets/slides/20.jpg" data-full="assets/slides/20.jpg" data-alt="The most expensive line item is the one that isn&#x27;t on the invoice.">
+        <img src="assets/slides/20.jpg" loading="lazy" width="1280" height="720" alt="Slide 20: The most expensive line item is the one that isn&#x27;t on the invoice.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">Pew Research Center, 5,119 U.S. adults, surveyed Feb 17–23 2026. Corroborated by Lean In’s 2026 workplace survey (via Forbes).</p>
+    </article>
+    <article class="slide" id="s21">
+      <div class="num">21 &middot; 06 · Who gets the lever</div>
+      <h2>The appetite is already there. The training is the missing line item.</h2>
+      
+      <a class="shot" href="assets/slides/21.jpg" data-full="assets/slides/21.jpg" data-alt="The appetite is already there. The training is the missing line item.">
+        <img src="assets/slides/21.jpg" loading="lazy" width="1280" height="720" alt="Slide 21: The appetite is already there. The training is the missing line item.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      <p class="src">63%: Skillsoft Women in Tech Report. 46%: BCG, surveying C-suite expectations for reskilling over three years.</p>
+    </article>
+    <article class="slide" id="s22">
+      <div class="num">22 &middot; Where to start</div>
+      <h2>Four moves you can make without a budget request.</h2>
+      
+      <a class="shot" href="assets/slides/22.jpg" data-full="assets/slides/22.jpg" data-alt="Four moves you can make without a budget request.">
+        <img src="assets/slides/22.jpg" loading="lazy" width="1280" height="720" alt="Slide 22: Four moves you can make without a budget request.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      
+    </article>
+    <article class="slide" id="s23">
+      <div class="num">23 &middot; Wrapping up</div>
+      <h2>The takeaways worth keeping.</h2>
+      
+      <a class="shot" href="assets/slides/23.jpg" data-full="assets/slides/23.jpg" data-alt="The takeaways worth keeping.">
+        <img src="assets/slides/23.jpg" loading="lazy" width="1280" height="720" alt="Slide 23: The takeaways worth keeping.">
+        <span class="tapz">Tap to enlarge</span>
+      </a>
+      
+    </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="t">Nick McCarty &middot; Upskilled Consulting</div>
+    <div class="d">
+      <a href="../nextup-socal.html">Downloads, checklist and contact</a> &middot;
+      <a href="AI-Cost-Checklist.pdf">The cost checklist (PDF)</a>
+    </div>
+  </div>
+</footer>
+
+<div id="lb"><button class="close" aria-label="Close">&times;</button><img alt=""><div class="rot">Pinch to zoom &middot; tap anywhere to close</div></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), img=lb.querySelector('img');
+  document.querySelectorAll('.shot').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      img.src=a.dataset.full; img.alt=a.dataset.alt||'';
+      lb.classList.add('on'); document.body.style.overflow='hidden';
+    });
+  });
+  function close(){ lb.classList.remove('on'); img.src=''; document.body.style.overflow=''; }
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>

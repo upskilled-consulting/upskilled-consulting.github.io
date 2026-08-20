@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Cost Checklist — NextUp SoCal</title>
+<meta name="description" content="One-page companion to “Reducing AI Operating Costs” · NextUp SoCal · Aug 21, 2026">
+<link rel="stylesheet" href="vendor/fonts.css">
+<style>
+  :root {
+    --indigo:#2E236F; --indigo-deep:#221A54; --violet:#5B3FD6; --purple:#6E5CE8;
+    --blue:#3E8FC9;   --teal:#2FBFC8;       --teal-bright:#59DBDE; --teal-ink:#0E6A72;
+    --warn:#9A4D18;   --alarm:#A5322D;
+    --ink:#1A2138; --ink-soft:#4E5770; --ink-mute:#8A93AB;
+    --line:rgba(46,35,111,.14); --paper:#fff;
+    --grad-brand:linear-gradient(125deg,#4B3BB0 0%,#6A57DB 45%,#35C6D0 100%);
+    --grad-dark:linear-gradient(150deg,#2C2168 0%,#201849 55%,#17123A 100%);
+    --grad-soft:linear-gradient(140deg,rgba(94,79,233,.09),rgba(53,198,208,.09));
+    --sans:'Manrope','Segoe UI',system-ui,sans-serif;
+    --display:'Sora','Segoe UI',system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family:var(--sans); color:var(--ink); background:#EEF0F6;
+    -webkit-font-smoothing:antialiased; padding:24px 0;
+  }
+
+  .page {
+    width:8.5in; height:11in; margin:0 auto 24px; background:var(--paper);
+    box-shadow:0 18px 50px -22px rgba(34,27,84,.42);
+    padding:0 0 0.26in; position:relative; display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+
+  /* ---------- masthead ---------- */
+  .mast { background:var(--grad-dark); color:#fff; padding:13px 0.5in 12px; position:relative; }
+  .mast::after { content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--grad-brand); }
+  .mast .kick {
+    font-family:var(--display); font-size:10px; font-weight:800; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--teal-bright);
+  }
+  .mast h1 { font-family:var(--display); font-size:24px; font-weight:800; letter-spacing:-.025em; margin-top:5px; line-height:1.08; }
+  .mast .sub { font-size:11.5px; color:#BDB6E4; margin-top:6px; font-weight:500; line-height:1.45; max-width:5.9in; }
+  .mast .meta { position:absolute; right:0.5in; top:19px; text-align:right; font-size:11px; color:#8F86C4; font-weight:600; line-height:1.6; }
+  .mast .meta b { display:block; color:#fff; font-family:var(--display); font-size:11.5px; font-weight:800; }
+
+  /* ---------- structure ---------- */
+  .body { padding:0 0.5in; flex:1; }
+  .sec { margin-top:8px; break-inside:avoid; }
+  .sec > h2 {
+    font-family:var(--display); font-size:13.5px; font-weight:800; color:var(--indigo);
+    letter-spacing:-.01em; display:flex; align-items:center; gap:8px; margin-bottom:2px;
+  }
+  .sec > h2 .n {
+    width:19px; height:19px; border-radius:6px; background:var(--grad-brand); color:#fff;
+    display:inline-grid; place-items:center; font-size:11px; font-weight:800; flex:none;
+  }
+  .sec > .lede { font-size:10.5px; color:var(--ink-mute); margin:0 0 5px 27px; font-weight:600; line-height:1.4; }
+
+  /* ---------- checklist rows ---------- */
+  .row { display:flex; gap:10px; padding:4px 0; border-top:1px solid var(--line); break-inside:avoid; }
+  .row:first-of-type { border-top:0; }
+  .box {
+    width:13px; height:13px; border:1.7px solid var(--violet); border-radius:3.5px;
+    flex:none; margin-top:2px; background:#fff;
+  }
+  .row .t { flex:1; }
+  .row .t b { font-size:11.5px; font-weight:800; color:var(--ink); display:block; line-height:1.3; }
+  .row .t span { font-size:10.5px; color:var(--ink-soft); line-height:1.42; display:block; margin-top:1px; }
+  .row .t .good { color:var(--teal-ink); font-weight:700; }
+  .row .tag {
+    flex:none; align-self:flex-start; margin-top:1px;
+    font-family:var(--display); font-size:9.5px; font-weight:800; letter-spacing:.02em;
+    padding:2.5px 7px; border-radius:999px; white-space:nowrap;
+    background:var(--grad-soft); color:var(--violet); border:1px solid rgba(94,79,233,.2);
+  }
+  .row .tag.t2 { background:rgba(47,191,200,.10); color:var(--teal-ink); border-color:rgba(47,191,200,.3); }
+
+  /* ---------- reference tables ---------- */
+  table { width:100%; border-collapse:collapse; font-size:10.5px; }
+  th {
+    text-align:left; font-family:var(--display); font-size:9px; font-weight:800;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute);
+    padding:0 0 4px; border-bottom:1px solid var(--line);
+  }
+  th.r, td.r { text-align:right; }
+  td { padding:4px 0; border-bottom:1px solid rgba(46,35,111,.07); color:var(--ink-soft); font-weight:500; }
+  td.k { color:var(--ink); font-weight:600; }
+  td.v { font-family:var(--display); font-weight:800; color:var(--indigo); font-variant-numeric:tabular-nums; }
+  tr.hero td { background:rgba(94,79,233,.05); }
+  tr.hero td.v { color:var(--violet); }
+
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+
+  /* ---------- callouts ---------- */
+  .note {
+    margin-top:6px; padding:6px 12px; border-radius:10px; font-size:10.5px; line-height:1.4;
+    background:rgba(47,191,200,.075); border:1px solid rgba(47,191,200,.28); color:var(--teal-ink);
+    font-weight:600; break-inside:avoid;
+  }
+  .note b { font-weight:800; }
+  .note.warn { background:rgba(196,68,63,.05); border-color:rgba(196,68,63,.26); color:var(--alarm); }
+
+  .ask { display:flex; gap:9px; padding:4.5px 0; font-size:10.5px; line-height:1.4; break-inside:avoid; }
+  .ask::before {
+    content:"?"; flex:none; width:15px; height:15px; border-radius:5px; margin-top:1px;
+    background:var(--grad-soft); border:1px solid rgba(94,79,233,.2); color:var(--violet);
+    font-family:var(--display); font-weight:800; font-size:10.5px; display:grid; place-items:center;
+  }
+  .ask b { font-weight:800; color:var(--ink); }
+  .ask span { color:var(--ink-soft); font-weight:500; }
+
+  /* ---------- owner strip ---------- */
+  .owner { margin-top:10px; padding-top:8px; border-top:1px dashed rgba(46,35,111,.22); }
+  .fields { display:flex; gap:22px; }
+  .fields + .fields { margin-top:13px; }
+  .fields.one label { flex:1; }
+  .fields label { flex:1; display:flex; align-items:baseline; gap:8px; }
+  .fields i {
+    font-style:normal; font-family:var(--display); font-size:9px; font-weight:800;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); white-space:nowrap;
+  }
+  .fields u { flex:1; border-bottom:1px solid rgba(46,35,111,.24); height:13px; text-decoration:none; }
+
+  /* ---------- footer ---------- */
+  .foot {
+    margin:auto 0.5in 0; padding-top:9px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:flex-end; gap:18px;
+    font-size:9.5px; color:var(--ink-mute); font-weight:600;
+  }
+  .foot b { color:var(--indigo); font-family:var(--display); font-size:11px; font-weight:800; display:block; }
+  .fmeta { line-height:1.65; flex:1; }
+  .pg { font-family:var(--display); font-weight:800; letter-spacing:.1em; color:var(--ink-mute);
+        align-self:flex-end; white-space:nowrap; }
+
+  /* QR keeps its white quiet zone — scanners need the contrast and the margin */
+  .fqr { display:flex; align-items:center; gap:8px; flex:none; }
+  .fqr img { width:80px; height:80px; display:block; image-rendering:pixelated; }
+  .fqr span {
+    font-size:8px; line-height:1.4; color:var(--ink-mute); font-weight:700;
+    text-align:right; white-space:nowrap;
+  }
+
+  @page { size:8.5in 11in; margin:0; }
+  @media print {
+    body { background:#fff; padding:0; }
+    .page { box-shadow:none; margin:0; page-break-after:always; }
+    .page:last-child { page-break-after:auto; }
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ PAGE 1 · DO ══════════════════════════════ -->
+<section class="page">
+  <header class="mast">
+    <div class="kick">NextUp SoCal · AI Webinar Series</div>
+    <h1>The AI Cost Checklist</h1>
+    <p class="sub">
+      A one-page companion to <em>Reducing AI Operating Costs</em>. Everything here can be
+      started without a budget request. Work top to bottom — the order matters more than the
+      percentages.
+    </p>
+    <div class="meta">
+      <b>Fri Aug 21, 2026</b>
+      Nick McCarty<br>Upskilled Consulting
+    </div>
+  </header>
+
+  <div class="body">
+
+    <!-- ── A · the four moves ── -->
+    <div class="sec">
+      <h2><span class="n">A</span> Four moves that don’t need a budget</h2>
+      <p class="lede">Start here. Two of these an executive can order without a technical conversation.</p>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Meter it — turn on per-team usage reporting.</b>
+          <span>You cannot cut what you cannot see. Ask for cost per team, per workflow, per month.
+          Most platforms have it switched off by default; one API key per team is an afternoon of work.</span>
+          <span class="good">Done when: someone can tell you last month’s cost for one named workflow.</span>
+        </div>
+        <span class="tag">This week</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Route it — name your three biggest use cases, then demote two.</b>
+          <span>Run the routine two on a cheaper model tier for two weeks and compare the output
+          side by side. If nobody can tell the difference, you have found most of your savings.</span>
+          <span class="good">Done when: a written rule says which tasks use which tier.</span>
+        </div>
+        <span class="tag">2 weeks</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Automate one thing properly.</b>
+          <span>Pick the task that runs the same way every week — the Friday report nobody enjoys
+          building. Ask for it to be automated once, and for the recipe to live somewhere the team
+          can find it, not in one person’s inbox.</span>
+          <span class="good">Done when: the recipe is in shared storage and someone else can run it.</span>
+        </div>
+        <span class="tag">1 month</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Budget per outcome, not per month.</b>
+          <span>Dollars per report, per ticket, per meeting summarized. A monthly cap tells you when
+          you are in trouble. A unit cost tells you whether it was worth it.</span>
+          <span class="good">Done when: your AI line item has a denominator.</span>
+        </div>
+        <span class="tag t2">Ongoing</span>
+      </div>
+
+      <div class="note">
+        If you only do one thing: <b>ask for cost per outcome.</b> The moment someone has to produce
+        that number, half of this fixes itself.
+      </div>
+    </div>
+
+    <!-- ── B · the five levers ── -->
+    <div class="sec">
+      <h2><span class="n">B</span> The five levers</h2>
+      <p class="lede">Applied in order to a $525,000 baseline, these took it to roughly $137,000 — without removing a capability from anyone.</p>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Right-size the model</b>
+          <span><i>The test:</i> of a hundred tasks, how many genuinely need the best model on earth?
+          Route the rest to a cheaper tier. The best open-weight models are within a couple of points
+          of the paid ones on routine work.</span>
+        </div>
+        <span class="tag">−40%</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Script the plain steps</b>
+          <span><i>The test:</i> if you can write the rule down, you don’t need to rent judgment to
+          follow it. Where the task genuinely needs judgment or language, the model earns its price.</span>
+        </div>
+        <span class="tag">−15%</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Engineer the context</b>
+          <span><i>The test:</i> ask what your agent re-reads on every step. Capping it — a short
+          rolling memory instead of the whole history — is a setting, not a rebuild. Ask your vendor
+          about prompt caching in the same conversation.</span>
+        </div>
+        <span class="tag">−25%</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Stop redoing work</b>
+          <span><i>The test:</i> where do finished prompts and outputs live? A prompt someone tuned
+          for four hours is an asset, and so is the artifact it produced. Both belong in shared,
+          versioned storage.</span>
+        </div>
+        <span class="tag">−15%</span>
+      </div>
+
+      <div class="row">
+        <div class="box"></div>
+        <div class="t">
+          <b>Run commodity work locally</b>
+          <span><i>The test:</i> which workloads are routine, high-volume, and sensitive? Those are
+          the candidates. Two or three small specialist models share one GPU, and nothing leaves the
+          building.</span>
+        </div>
+        <span class="tag">−20%</span>
+      </div>
+
+      <div class="note warn">
+        <b>Check the volume before you buy hardware.</b> Local wins on volume, not by default —
+        against commodity-tier cloud pricing the electricity alone can cost more than the API call.
+      </div>
+
+      <div class="note">
+        <b>And the one that does need a budget: training.</b> 63% of women report a lack of skills
+        and access to AI training at work, and the C-suite expects 46% of workers to need reskilling
+        within three years. Every lever above needs somebody who knows to pull it.
+      </div>
+    </div>
+
+    <!-- ── owner strip ── -->
+    <div class="sec owner">
+      <div class="fields">
+        <label><i>Owner</i><u></u></label>
+        <label><i>Started</i><u></u></label>
+        <label><i>Review on</i><u></u></label>
+        <label><i>First workflow</i><u></u></label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="fmeta">
+      <b>Reducing AI Operating Costs</b>
+      NextUp SoCal · Fri Aug 21, 2026 · Nick McCarty, Upskilled Consulting<br>
+      nick@upskilled.consulting · linkedin.com/in/nicholasmccarty
+    </div>
+    <div class="fqr">
+      <img src="assets/qr-code.png" alt="QR code linking to the slides, this checklist and contact details">
+      <span>Slides, this checklist<br>and how to reach me</span>
+    </div>
+    <div class="pg">1 / 2</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PAGE 2 · LOOK UP ════════════════════════════ -->
+<section class="page">
+  <header class="mast">
+    <div class="kick">Reference card</div>
+    <h1>The numbers worth keeping</h1>
+    <p class="sub">
+      Everything below assumes GPT-5 standard-tier pricing — <b>$1.25 per million input tokens,
+      $10 per million output</b> — with a summary at 10% of input length. Prices move; the ratios
+      hold. Re-check the two rates before you quote anything.
+    </p>
+    <div class="meta">
+      <b>Page 2</b>
+      Token weights,<br>costs and scale
+    </div>
+  </header>
+
+  <div class="body">
+
+    <div class="two">
+      <!-- ── C · weights ── -->
+      <div class="sec" style="margin-top:20px;">
+        <h2><span class="n">C</span> What things weigh</h2>
+        <table>
+          <tr><th>Artifact</th><th class="r">Tokens</th></tr>
+          <tr class="hero"><td class="k">1,000 tokens</td><td class="r v">≈ 750 words</td></tr>
+          <tr><td class="k">…which is also</td><td class="r v">≈ 4,000 chars</td></tr>
+          <tr><td class="k">1 PDF page</td><td class="r v">650</td></tr>
+          <tr><td class="k">1 minute of speech</td><td class="r v">850</td></tr>
+          <tr><td class="k">1,000 words</td><td class="r v">1,330</td></tr>
+          <tr><td class="k">1-hour meeting</td><td class="r v">10,000</td></tr>
+          <tr><td class="k">100-page report</td><td class="r v">70,000</td></tr>
+        </table>
+        <p class="lede" style="margin:8px 0 0 0;">Images are priced by area, not content:
+        roughly (width × height) ÷ 750.</p>
+      </div>
+
+      <!-- ── D · costs ── -->
+      <div class="sec" style="margin-top:20px;">
+        <h2><span class="n">D</span> What things cost</h2>
+        <table>
+          <tr><th>If you have…</th><th class="r">Budget about…</th></tr>
+          <tr><td class="k">A single email</td><td class="r v">&lt; $0.001</td></tr>
+          <tr><td class="k">A 10-page report</td><td class="r v">≈ 2¢</td></tr>
+          <tr><td class="k">A one-hour meeting</td><td class="r v">≈ 2¢</td></tr>
+          <tr><td class="k">A 100-page report</td><td class="r v">≈ 16¢</td></tr>
+          <tr><td class="k">A day of email (50)</td><td class="r v">≈ 5¢</td></tr>
+          <tr class="hero"><td class="k">1,000 × 100-page reports</td><td class="r v">≈ $158</td></tr>
+        </table>
+        <p class="lede" style="margin:8px 0 0 0;">Read it in, hand a summary back — that is the
+        whole bill for one item.</p>
+      </div>
+    </div>
+
+    <!-- ── E · scale ── -->
+    <div class="sec">
+      <h2><span class="n">E</span> What scale does</h2>
+      <p class="lede">Same 600 people. Same 250 working days. Same price list. The only variable is how the tool is used.</p>
+      <table>
+        <tr>
+          <th>Pattern</th><th class="r">Input / person / day</th><th class="r">Output</th>
+          <th class="r">Per year</th><th class="r">Per person</th>
+        </tr>
+        <tr>
+          <td class="k">Assistant — chat, summarize, draft</td>
+          <td class="r">20,000</td><td class="r">5,000</td>
+          <td class="r v">$11,250</td><td class="r v">$18.75</td>
+        </tr>
+        <tr>
+          <td class="k">Agentic — it works on your behalf</td>
+          <td class="r">500,000</td><td class="r">20,000</td>
+          <td class="r v">$123,750</td><td class="r v">$206.25</td>
+        </tr>
+        <tr class="hero">
+          <td class="k">Always-on — agents that never stop watching</td>
+          <td class="r">2,000,000</td><td class="r">100,000</td>
+          <td class="r v">$525,000</td><td class="r v">$875.00</td>
+        </tr>
+      </table>
+      <div class="note">
+        <b>Agents read far more than they write.</b> Nothing about the price list changes between
+        these rows — the tool simply starts reading on your behalf. That is the entire cost story.
+      </div>
+    </div>
+
+    <!-- ── F · prompt hygiene ── -->
+    <div class="sec">
+      <h2><span class="n">F</span> Never goes in the prompt</h2>
+      <p class="lede">One page, four bullets, circulated once. It costs nothing to strip these out — and a great deal to explain them.</p>
+      <div class="two" style="gap:0 22px;">
+        <div>
+          <div class="row"><div class="box"></div><div class="t"><b>API keys, passwords, tokens</b></div></div>
+          <div class="row"><div class="box"></div><div class="t"><b>Customer names, emails, card data</b></div></div>
+        </div>
+        <div>
+          <div class="row"><div class="box"></div><div class="t"><b>Client contracts and their IP</b></div></div>
+          <div class="row"><div class="box"></div><div class="t"><b>Unreleased financials</b></div></div>
+        </div>
+      </div>
+      <p class="lede" style="margin:9px 0 0 0;">Pair it with a shared, sanitized prompt template
+      for the two or three workflows everyone actually runs.</p>
+    </div>
+
+    <!-- ── G · questions ── -->
+    <div class="sec">
+      <h2><span class="n">G</span> Five questions to ask before you sign</h2>
+      <div class="ask"><div><b>What is the cost per outcome, not per seat or per month?</b>
+        <span>If they cannot break it out, that is the answer to the question.</span></div></div>
+      <div class="ask"><div><b>Can I see usage by team and by workflow?</b>
+        <span>Metering should not be an upgrade.</span></div></div>
+      <div class="ask"><div><b>Which model tier runs each task, and can I change it?</b>
+        <span>If everything runs on the frontier model, you are paying a tax on habit.</span></div></div>
+      <div class="ask"><div><b>What do you cache, and what does the discount look like?</b>
+        <span>Repeated context is usually the largest single line in an agent bill.</span></div></div>
+      <div class="ask"><div><b>What sits in the path of every model call, and what does it retain?</b>
+        <span>Gateways and proxies see every prompt and every response.</span></div></div>
+    </div>
+
+    <div class="note" style="margin-top:18px;">
+      <b>The one-sentence version.</b> The unit is cheap and the volume is the bill — and roughly
+      three-quarters of that bill is decision-driven, not a set price.
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div class="fmeta">
+      <b>Nick McCarty · Upskilled Consulting</b>
+      nick@upskilled.consulting · linkedin.com/in/nicholasmccarty<br>
+      Figures for the five levers are a working model, not a measurement — your mix will differ.
+    </div>
+    <div class="fqr">
+      <img src="assets/qr-code.png" alt="QR code linking to the slides, this checklist and contact details">
+      <span>Slides, this checklist<br>and how to reach me</span>
+    </div>
+    <div class="pg">2 / 2</div>
+  </div>
+</section>
+
+</body>
+</html>
