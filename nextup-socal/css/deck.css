@@ -507,6 +507,20 @@ ol.takeaways li::before {
   .qr-corner { opacity: 1 !important; transform: none !important; }
 }
 
+/* --- Live-demo iframe: print gets a placeholder, not a blank box --------- */
+.demo-print-fallback {
+  display: none;
+  flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; aspect-ratio: 640 / 360;
+  background: rgba(255,255,255,.05);
+}
+.demo-print-fallback p { font-size: 13px; line-height: 1.5; color: #C3BCEA; text-align: center; margin: 0; }
+.demo-print-fallback p b { color: #fff; }
+@media print {
+  .demo-iframe { display: none !important; }
+  .demo-print-fallback { display: flex !important; }
+}
+
 /* --- PDF fidelity ---------------------------------------------------------
    Chrome leaves a faint rectangle around -webkit-background-clip:text when it
    rasterizes to PDF. On paper the gradient is decoration, so print solid.
