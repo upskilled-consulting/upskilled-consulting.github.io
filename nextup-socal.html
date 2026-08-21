@@ -94,17 +94,13 @@
   .grabs { display:grid; gap:14px; margin-top:24px; }
   @media (min-width:660px) {
     .grabs { grid-template-columns:1fr 1fr; }
-    .grab.span { grid-column:1 / -1; }
   }
   .grab {
-    display:flex; gap:15px; align-items:flex-start; text-decoration:none; color:inherit;
+    display:flex; gap:15px; align-items:flex-start;
     background:var(--card); border:1px solid var(--line); border-radius:18px;
-    padding:20px; box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    padding:20px; box-shadow:var(--shadow); transition:border-color .18s ease;
   }
-  .grab:hover, .grab:focus-visible {
-    transform:translateY(-2px); border-color:rgba(94,79,233,.35);
-    box-shadow:0 22px 50px -20px rgba(34,27,84,.40); outline:none;
-  }
+  .grab:focus-within { border-color:rgba(94,79,233,.35); }
   .grab .ic {
     width:46px; height:46px; border-radius:14px; flex:none; display:grid; place-items:center;
     background:var(--grad-soft); border:1px solid rgba(94,79,233,.16);
@@ -114,8 +110,21 @@
   .grab.primary { background:var(--grad-soft); border-color:rgba(94,79,233,.26); }
   .grab h3 { font-family:var(--display); font-weight:800; font-size:17px; color:var(--indigo); letter-spacing:-.01em; }
   .grab p { font-size:14px; color:var(--ink-soft); margin-top:4px; }
-  .grab .meta { font-size:12px; color:var(--ink-mute); font-weight:700; margin-top:8px;
-    text-transform:uppercase; letter-spacing:.1em; }
+
+  .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .pill {
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    font-family:var(--display); font-weight:700; font-size:12.5px; color:var(--violet);
+    background:#fff; border:1px solid rgba(94,79,233,.28);
+    border-radius:999px; padding:7px 13px; min-height:32px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .pill:hover, .pill:focus-visible {
+    transform:translateY(-1px); border-color:rgba(94,79,233,.5);
+    background:var(--grad-soft); outline:none;
+  }
+  .pill svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2;
+    stroke-linecap:round; stroke-linejoin:round; }
 
   /* ---------------- contact ---------------- */
   .contact { background:var(--grad-soft); border:1px solid rgba(94,79,233,.2); border-radius:20px; padding:24px; margin-top:22px; }
@@ -182,60 +191,53 @@
     <p class="sub">Everything from the session. The checklist is the one worth printing.</p>
 
     <div class="grabs">
-      <a class="grab primary" href="nextup-socal/AI-Cost-Checklist.pdf" download>
+      <div class="grab primary">
         <span class="ic" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M9 11l3 3 3-3M12 14V4"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
         </span>
         <span>
           <h3>The AI Cost Checklist</h3>
           <p>Two pages. Four moves that need no budget, the five levers, and the numbers worth keeping.</p>
-          <span class="meta">PDF · 2 pages · 450 KB</span>
+          <span class="pills">
+            <a class="pill" href="nextup-socal/AI-Cost-Checklist.pdf" download>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 3-3M12 14V4"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+              PDF download
+            </a>
+            <a class="pill" href="nextup-socal/checklist.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Web version
+            </a>
+          </span>
         </span>
-      </a>
+      </div>
 
-      <a class="grab" href="nextup-socal/Reducing-AI-Operating-Costs.pdf" download>
+      <div class="grab">
         <span class="ic" aria-hidden="true">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </span>
         <span>
           <h3>The slides</h3>
           <p>All 24 slides as they appeared, with every chart fully drawn.</p>
-          <span class="meta">PDF · 24 slides · 3.6 MB</span>
+          <span class="pills">
+            <a class="pill" href="nextup-socal/Reducing-AI-Operating-Costs.pdf" download>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 3-3M12 14V4"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+              PDF download
+            </a>
+            <a class="pill" href="nextup-socal/Reducing-AI-Operating-Costs.pptx" download>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 3-3M12 14V4"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+              PowerPoint
+            </a>
+            <a class="pill" href="nextup-socal/slides-mobile.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+              Web (mobile)
+            </a>
+            <a class="pill" href="nextup-socal/index.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Web (desktop)
+            </a>
+          </span>
         </span>
-      </a>
-
-      <a class="grab span" href="nextup-socal/slides-mobile.html">
-        <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-        </span>
-        <span>
-          <h3>Read the slides on your phone</h3>
-          <p>All 24, laid out to actually read on a small screen — headline in full size, tap any slide to enlarge.</p>
-          <span class="meta">Web · built for mobile</span>
-        </span>
-      </a>
-
-      <a class="grab" href="nextup-socal/index.html">
-        <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
-        <span>
-          <h3>Open the interactive deck</h3>
-          <p>The live version with the animations. Laptop only — press <b>?</b> for the controls.</p>
-          <span class="meta">Web · works offline</span>
-        </span>
-      </a>
-
-      <a class="grab" href="nextup-socal/checklist.html">
-        <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9 5h10M9 12h10M9 19h10"/><path d="M4 5l1.5 1.5L8 4M4 12l1.5 1.5L8 11M4 19l1.5 1.5L8 18"/></svg>
-        </span>
-        <span>
-          <h3>Checklist in the browser</h3>
-          <p>Same handout, if you would rather read it on screen than download it.</p>
-          <span class="meta">Web · printable</span>
-        </span>
-      </a>
+      </div>
     </div>
   </div>
 </section>

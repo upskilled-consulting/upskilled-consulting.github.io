@@ -415,19 +415,12 @@ svg text { font-family: var(--sans); }
 }
 
 /* --- Close slide takeaways ----------------------------------------------- */
-ol.takeaways { list-style: none; counter-reset: tk; display: flex; flex-direction: column; gap: 13px; }
+ol.takeaways { list-style: none; display: flex; flex-direction: column; gap: 13px; }
 ol.takeaways li {
-  counter-increment: tk; position: relative; padding-left: 40px;
+  position: relative;
   font-size: 15px; line-height: 1.45; color: #C3BCEA; font-weight: 500;
 }
 ol.takeaways li b { color: #fff; font-weight: 800; display: block; margin-bottom: 2px; font-size: 15.5px; }
-ol.takeaways li::before {
-  content: counter(tk); position: absolute; left: 0; top: 1px;
-  width: 26px; height: 26px; border-radius: 9px;
-  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.2);
-  display: grid; place-items: center;
-  font-family: var(--display); font-size: 12.5px; font-weight: 800; color: var(--teal-bright);
-}
 
 /* --- Close slide QR, in a live frame -------------------------------------- */
 .qr-block { display: flex; flex-direction: column; align-items: center; gap: 16px; }
@@ -486,6 +479,12 @@ ol.takeaways li::before {
 }
 .qr-cap b { display: block; color: #fff; font-weight: 800; margin-bottom: 3px; font-size: 14px; }
 
+.qr-url {
+  position: relative;
+  text-align: center; font-size: 12.5px;
+  color: var(--teal-bright); font-weight: 700; letter-spacing: .01em;
+}
+
 /* Compact QR badge — title slide corner */
 .qr-block.compact { gap: 8px; }
 .qr-block.compact .qr-ring { padding: 6px; border-radius: 16px; }
@@ -497,6 +496,7 @@ ol.takeaways li::before {
 .qr-block.compact .qr-corner.bl { bottom: -7px; left: -7px; border-radius: 0 0 0 6px; }
 .qr-block.compact .qr-corner.br { bottom: -7px; right: -7px; border-radius: 0 0 6px 0; }
 .qr-block.compact .qr-cap { font-size: 11px; max-width: 112px; }
+.qr-block.compact .qr-url { font-size: 9.5px; }
 .qr-block.compact .qr-cap b { font-size: 11.5px; margin-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) {
