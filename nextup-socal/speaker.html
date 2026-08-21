@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Speaker View — Reducing AI Operating Costs</title>
+<link rel="stylesheet" href="vendor/fonts.css">
+<style>
+  :root {
+    --violet: #6E5CE8; --teal: #59DBDE; --ink: #C3BCEA; --mute: #7F76B4;
+    --sans: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+    --display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans); background: #14102E; color: #fff;
+    height: 100vh; display: grid; grid-template-rows: auto 1fr auto; gap: 18px; padding: 20px 24px;
+  }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+  .pos { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: .16em; color: var(--teal); }
+  .clocks { display: flex; gap: 26px; align-items: baseline; }
+  .timer { font-family: var(--display); font-weight: 800; font-size: 40px; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .timer.over { color: #FF8E7A; }
+  .clock { font-size: 15px; color: var(--mute); font-variant-numeric: tabular-nums; font-weight: 700; }
+  main { display: grid; grid-template-columns: 1.65fr 1fr; gap: 20px; min-height: 0; }
+  .pane { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 20px 22px; overflow: auto; }
+  .lbl { font-size: 10.5px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); margin-bottom: 9px; }
+  h2 { font-family: var(--display); font-size: 25px; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 14px; }
+  .pane.next h2 { font-size: 19px; color: var(--ink); }
+  .notes { font-size: 16.5px; line-height: 1.58; color: var(--ink); }
+  .notes p { margin-bottom: 11px; }
+  .notes strong { color: #fff; }
+  .notes em { color: var(--teal); font-style: normal; font-weight: 700; }
+  .notes ul { margin: 0 0 11px 20px; }
+  .notes li { margin-bottom: 6px; }
+  .notes .say { border-left: 3px solid var(--violet); padding-left: 13px; color: #fff; font-size: 17px; }
+  .pane.next .notes { font-size: 14px; color: var(--mute); }
+  .steps { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+  .steps i { width: 26px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.16); }
+  .steps i.on { background: linear-gradient(90deg, var(--violet), var(--teal)); }
+  footer { display: flex; gap: 10px; align-items: center; }
+  button {
+    font-family: var(--sans); font-weight: 700; font-size: 14px; cursor: pointer;
+    background: rgba(255,255,255,.09); color: #fff; border: 1px solid rgba(255,255,255,.16);
+    padding: 10px 18px; border-radius: 11px;
+  }
+  button:hover { background: rgba(255,255,255,.16); }
+  button.primary { background: linear-gradient(135deg, #6A57DB, #35C6D0); border: none; color: #12102A; }
+  .tip { margin-left: auto; font-size: 12px; color: var(--mute); }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="pos" id="pos">— / —</div>
+      <div style="font-size:12px;color:var(--mute);margin-top:4px;letter-spacing:.06em;">REDUCING AI OPERATING COSTS · NEXTUP SOCAL</div>
+    </div>
+    <div class="clocks">
+      <div>
+        <div class="lbl" style="margin:0 0 2px;">Elapsed / 60 min</div>
+        <div class="timer" id="timer">00:00</div>
+      </div>
+      <div>
+        <div class="lbl" style="margin:0 0 2px;">Time</div>
+        <div class="clock" id="clock">—</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="pane">
+      <div class="lbl">Current slide</div>
+      <h2 id="title">—</h2>
+      <div class="steps" id="steps"></div>
+      <div class="notes" id="notes"></div>
+    </div>
+    <div class="pane next">
+      <div class="lbl">Up next</div>
+      <h2 id="ntitle">—</h2>
+      <div class="notes" id="nnotes"></div>
+    </div>
+  </main>
+
+  <footer>
+    <button id="prev">&larr; Back</button>
+    <button id="next" class="primary">Next &rarr;</button>
+    <button id="reset">Reset timer</button>
+    <span class="tip">Arrow keys work here too. Keep this window on your laptop; share the deck window.</span>
+  </footer>
+
+<script>
+(function () {
+  var main = window.opener;
+  var started = Date.now(), steps = 0, k = 0;
+
+  function send(msg) { if (main && !main.closed) main.postMessage(msg, '*'); }
+
+  window.addEventListener('message', function (e) {
+    var d = e.data || {};
+    if (d.type !== 'state') return;
+    started = d.started || started;
+    steps = d.steps; k = d.k;
+    document.getElementById('pos').textContent =
+      String(d.i + 1).padStart(2, '0') + ' / ' + String(d.total).padStart(2, '0');
+    document.getElementById('title').textContent = d.title;
+    document.getElementById('notes').innerHTML = d.notes || '<p style="color:#7F76B4">No notes for this slide.</p>';
+    document.getElementById('ntitle').textContent = d.nextTitle || 'End of deck';
+    document.getElementById('nnotes').innerHTML = d.nextNotes || '';
+    var box = document.getElementById('steps'); box.innerHTML = '';
+    for (var n = 0; n <= steps; n++) {
+      var i = document.createElement('i');
+      if (n <= k) i.className = 'on';
+      box.appendChild(i);
+    }
+    if (steps === 0) box.innerHTML = '';
+  });
+
+  setInterval(function () {
+    var s = Math.floor((Date.now() - started) / 1000);
+    var el = document.getElementById('timer');
+    el.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+    el.classList.toggle('over', s > 3600);
+    document.getElementById('clock').textContent =
+      new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  }, 500);
+
+  document.getElementById('next').onclick = function () { send({ type: 'nav', dir: 'next' }); };
+  document.getElementById('prev').onclick = function () { send({ type: 'nav', dir: 'prev' }); };
+  document.getElementById('reset').onclick = function () { started = Date.now(); send({ type: 'reset-timer' }); };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') {
+      e.preventDefault(); send({ type: 'nav', dir: 'next' });
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+      e.preventDefault(); send({ type: 'nav', dir: 'prev' });
+    }
+  });
+
+  send({ type: 'ready' });
+})();
+</script>
+</body>
+</html>
